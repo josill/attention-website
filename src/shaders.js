@@ -1,4 +1,4 @@
-export const vertexShader = `
+export const vertexShaderGLSL = `
     uniform float u_time;
     varying vec3 v_Normal;
     varying vec3 v_Position;
@@ -107,7 +107,7 @@ export const vertexShader = `
         gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition, 1.0); 
     }
 `;
-export const fragmentShader = `
+export const fragmentShaderGLSL = `
     varying vec3 v_Normal;
     varying vec3 v_Position;
     uniform vec3 u_lightPosition;
