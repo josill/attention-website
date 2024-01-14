@@ -10,11 +10,12 @@ const SphereAnimation = () => {
     width: 800,
     height: 600,
   });
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
-      75,
+      60,
       window.innerWidth / window.innerHeight,
       0.1,
       1000
@@ -33,6 +34,8 @@ const SphereAnimation = () => {
       u_lightColor: { type: "c", value: new THREE.Color(0xffffff) },
       u_lightPosition: { type: "v3", value: light.position },
       u_ambientLight: { type: "c", value: new THREE.Color(0x000000) },
+      u_mousePosition: { type: "v2", value: new THREE.Vector2(0, 0) },
+      u_cameraPosition: { type: "v3", value: camera.position },
     };
     const material = new THREE.ShaderMaterial({
       uniforms: uniforms,
@@ -81,16 +84,27 @@ const SphereAnimation = () => {
 
     function animate() {
       uniforms.u_time.value += 0.003;
-      renderer.render(scene, camera);
       requestAnimationFrame(animate);
+      renderer.render(scene, camera);
     }
 
     window.addEventListener("resize", handleResize);
 
     animate();
 
+    const handleMouseMove = (event: any) => {
+      const x = (event.clientX / window.innerWidth) * 2 - 1;
+      const y = -(event.clientY / window.innerHeight) * 2 + 1;
+      setMousePosition({ x, y });
+
+      // Update the mouse position uniform
+      uniforms.u_mousePosition.value.set(x, y);
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+
     return () => {
       window.removeEventListener("resize", handleResize);
+      window.removeEventListener("mousemove", handleMouseMove);
     };
   }, [theme, windowDimensions]);
 

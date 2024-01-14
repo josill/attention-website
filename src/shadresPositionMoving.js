@@ -2,7 +2,6 @@ export const vertexShaderGLSL = `
     uniform float u_time;
     varying vec3 v_Normal;
     varying vec3 v_Position;
-    uniform vec3 u_cameraPosition;
     uniform vec2 u_mousePosition;
 
     vec3 mod289(vec3 x)
@@ -101,25 +100,21 @@ export const vertexShaderGLSL = `
     void main()
     {
 
-    float noise = pnoise((position / 8.0) + u_time, vec3(10.0));
+        float noiseIntensity = 2.9;
+        float mouseIntensity = 5.0; 
+
+        float noise1 = pnoise((position / 8.0) + u_time, vec3(10.0));
+        float noise2 = pnoise((position / 8.0) + u_time, vec3(10.0));
+        float combinedNoise = mix(noise1, noise2, 0.5);
+
+        
+        float displacement = combinedNoise * noiseIntensity;
+        vec3 adjustedPosition = position + normal * displacement + vec3(u_mousePosition.x * mouseIntensity, u_mousePosition.y * mouseIntensity, 0.0);
+        v_Normal = normalize(normalMatrix * normal);
+        v_Position = vec3(modelViewMatrix * vec4(position, 1.0));
 
 
-    vec4 ndcPosition = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-    ndcPosition /= ndcPosition.w; 
-
-  
-    float distanceFromMouse = length(vec2(ndcPosition.x, ndcPosition.y) - u_mousePosition);
-
-
-    float noiseScale = 1.0 - smoothstep(0.0, 2.0, distanceFromMouse);
-    float displacement = noise * (1.2 + noiseScale*4.0);
-
-   
-    vec3 adjustedPosition = position + normal * displacement + vec3(u_mousePosition.x * 1.0 , u_mousePosition.y * 1.0, 0.0);
-
-    v_Normal = normalize(normalMatrix * normal);
-    v_Position = vec3(modelViewMatrix * vec4(adjustedPosition, 1.0));
-    gl_Position = projectionMatrix * modelViewMatrix * vec4(adjustedPosition, 1.0);
+        gl_Position = projectionMatrix * modelViewMatrix * vec4(adjustedPosition, 1.0);
 
     }
 `;
