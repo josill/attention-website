@@ -86,7 +86,7 @@ const SphereAnimation = () => {
     }
 
     window.addEventListener("resize", handleResize);
-    
+
     animate();
 
     return () => {
@@ -95,8 +95,8 @@ const SphereAnimation = () => {
   }, [theme, windowDimensions]);
 
   return (
-    <div className="flex flex-col items-center justify-center">
-      <canvas id="bg"></canvas>
+    <div className="flex flex-col items-center justify-center overflow-hidden">
+      <canvas id="bg" className=""></canvas>
     </div>
   );
 };
