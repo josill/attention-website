@@ -12,9 +12,9 @@ const SphereAnimation = () => {
       0.1,
       1000
     );
-    camera.position.setZ(30);
+    camera.position.setZ(40);
 
-    const light = new THREE.SpotLight(0xffffff, 100); // Increased intensity, decreased distance
+    const light = new THREE.SpotLight(0xffffff, 100);
     light.castShadow = true;
     light.position.set(0, 0, 0);
     const uniforms = {
@@ -26,7 +26,6 @@ const SphereAnimation = () => {
       u_lightColor: { type: "c", value: new THREE.Color(0x000000) },
       u_lightPosition: { type: "v3", value: light.position },
       u_ambientLight: { type: "c", value: new THREE.Color(0x000000) },
-      // u_mouse: { type: "v2", value: new THREE.Vector2() }
     };
     const material = new THREE.ShaderMaterial({
       uniforms: uniforms,
@@ -182,15 +181,12 @@ const SphereAnimation = () => {
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
     const controls = new OrbitControls(camera, renderer.domElement);
-    controls.enableDamping = true; // an animation loop is required when either damping or auto-rotation are enabled
+    controls.enableDamping = true;
     controls.dampingFactor = 0.25;
     controls.screenSpacePanning = false;
     controls.maxPolarAngle = Math.PI / 2;
 
     function animate() {
-      // sphere.rotation.x += 0.01;
-      // sphere.rotation.y += 0.005;
-      // sphere.rotation.z += 0.01;
       uniforms.u_time.value += 0.006;
       renderer.render(scene, camera);
       requestAnimationFrame(animate);
@@ -207,22 +203,6 @@ const SphereAnimation = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Next.js Anime.js Image Animation</title>
       </Head>
-
-      {/* <script id='vertexShader' type='vertex'>
-        uniform float u_time;
-
-        void main() {
-          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-        }
-      </script>
-      <script id='fragmentShader' type='fragment'>
-        uniform vec2 u_resolution;
-
-        void main() {
-          vec2 st = gl_FragCoord.xy/u_resolution;
-          gl_FragColor = vec4(vec3(1.0, 1.0, 1.0), 1.0);
-        }
-      </script> */}
     </div>
   );
 };
