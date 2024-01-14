@@ -104,15 +104,15 @@ export const vertexShaderGLSL = `
     float noise = pnoise((position / 8.0) + u_time, vec3(10.0));
 
 
-    vec4 ndcPosition = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+    vec4 ndcPosition = projectionMatrix * modelViewMatrix * vec4(position, 2.0);
     ndcPosition /= ndcPosition.w; 
 
   
     float distanceFromMouse = length(vec2(ndcPosition.x, ndcPosition.y) - u_mousePosition);
 
 
-    float noiseScale = 1.0 - smoothstep(0.0, 2.0, distanceFromMouse);
-    float displacement = noise * (1.2 + noiseScale*4.0);
+    float noiseScale = 1.0 - smoothstep(0.0, 1.0, distanceFromMouse * 1.0);
+    float displacement = noise * (1.2 + noiseScale * 4.0);
 
    
     vec3 adjustedPosition = position + normal * displacement + vec3(u_mousePosition.x * 1.0 , u_mousePosition.y * 1.0, 0.0);
