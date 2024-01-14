@@ -16,6 +16,15 @@
   }
 }
 
+@font-face {
+  font-family: 'Spotnik';
+  src: url('/fonts/spotnik.ttf') format('truetype');
+}
+
+.spotnik {
+  font-family: 'Spotnik';
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(

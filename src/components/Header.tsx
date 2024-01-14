@@ -4,8 +4,8 @@ import ThemeSwitch from './ThemeSwitch'
 
 function Header() {
   return (
-    <nav className='flex justify-between items-center bg-white dark:bg-black px-8 py-4 myClass'>
-        <h1 className='text-4xl text-center text-gray-900 dark:text-white'>Attention</h1>
+    <nav className='flex justify-between items-center bg-white dark:bg-black px-8 py-4'>
+        <h1 className='text-4xl text-center text-gray-900 dark:text-white font-spotnik'>Attention</h1>
         <ThemeSwitch/>
     </nav>
   )
