@@ -1,17 +1,25 @@
-import React, { useEffect } from 'react';
-import Head from 'next/head';
-import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import React, { useEffect } from "react";
+import Head from "next/head";
+import * as THREE from "three";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 const SphereAnimation = () => {
   useEffect(() => {
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const camera = new THREE.PerspectiveCamera(
+      75,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      1000
+    );
     camera.position.setZ(30);
 
     const uniforms = {
       u_time: { type: "f", value: 0.0 },
-      u_resolution: { type: "v2", value: new THREE.Vector2(window.innerWidth, window.innerHeight) },
+      u_resolution: {
+        type: "v2",
+        value: new THREE.Vector2(window.innerWidth, window.innerHeight),
+      },
       // u_mouse: { type: "v2", value: new THREE.Vector2() }
     };
     const material = new THREE.ShaderMaterial({
@@ -114,8 +122,10 @@ const SphereAnimation = () => {
 
         void main()
         {
-          float noise = 1.0 * pnoise(position + u_time, vec3(10.0));
-          float displacement = noise / 2.0;
+          float noise1 = pnoise((position / 8.0) + u_time, vec3(10.0));
+          float noise2 = pnoise((position / 8.0) + u_time, vec3(10.0));
+          float combinedNoise = mix(noise1, noise2, 0.5);
+          float displacement = combinedNoise * 2.9;
           vec3 newPosition = position + normal * displacement;
           gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition, 1.0);
         }
@@ -131,13 +141,13 @@ const SphereAnimation = () => {
       `,
     });
 
-    const geometry = new THREE.IcosahedronGeometry(16, 30);
+    const geometry = new THREE.IcosahedronGeometry(16, 20);
     const sphere = new THREE.Mesh(geometry, material);
     scene.add(sphere);
     sphere.material.wireframe = true;
 
     const renderer = new THREE.WebGLRenderer({
-      canvas: document.querySelector('#bg') as HTMLCanvasElement
+      canvas: document.querySelector("#bg") as HTMLCanvasElement,
     });
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight);
@@ -150,20 +160,20 @@ const SphereAnimation = () => {
     controls.maxPolarAngle = Math.PI / 2;
 
     function animate() {
-      requestAnimationFrame(animate);
       // sphere.rotation.x += 0.01;
       // sphere.rotation.y += 0.005;
       // sphere.rotation.z += 0.01;
-      uniforms.u_time.value += 0.01;
+      uniforms.u_time.value += 0.02;
       renderer.render(scene, camera);
+      requestAnimationFrame(animate);
     }
 
     animate();
   }, []);
 
   return (
-    <div className='w-screen h-screen flex items-center justify-center'>
-      <canvas id='bg'></canvas>
+    <div className="w-screen h-screen flex items-center justify-center">
+      <canvas id="bg"></canvas>
       <Head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -186,7 +196,6 @@ const SphereAnimation = () => {
         }
       </script> */}
     </div>
-
   );
 };
 
