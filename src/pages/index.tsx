@@ -44,7 +44,10 @@ const SphereAnimation = () => {
       fragmentShader: fragmentShaderGLSL,
     });
 
-    const geometry = new THREE.IcosahedronGeometry(16, 60);
+    const geometry = new THREE.IcosahedronGeometry(
+      16,
+      theme === "dark" ? 60 : 20
+    );
     const sphere = new THREE.Mesh(geometry, material);
     sphere.castShadow = true;
     sphere.receiveShadow = true;
@@ -84,6 +87,11 @@ const SphereAnimation = () => {
 
     function animate() {
       uniforms.u_time.value += 0.003;
+      const rotationSpeed = 0.002;
+
+      // Update sphere rotation
+      sphere.rotation.x += rotationSpeed;
+      sphere.rotation.y += rotationSpeed;
       requestAnimationFrame(animate);
       renderer.render(scene, camera);
     }
@@ -97,7 +105,6 @@ const SphereAnimation = () => {
       const y = -(event.clientY / window.innerHeight) * 2 + 1;
       setMousePosition({ x, y });
 
-      // Update the mouse position uniform
       uniforms.u_mousePosition.value.set(x, y);
     };
     window.addEventListener("mousemove", handleMouseMove);
