@@ -14,19 +14,27 @@ const SphereAnimation = () => {
     );
     camera.position.setZ(30);
 
+    const light = new THREE.SpotLight(0xffffff, 100); // Increased intensity, decreased distance
+    light.castShadow = true;
+    light.position.set(0, 0, 0);
     const uniforms = {
       u_time: { type: "f", value: 0.0 },
       u_resolution: {
         type: "v2",
         value: new THREE.Vector2(window.innerWidth, window.innerHeight),
       },
+      u_lightColor: { type: "c", value: new THREE.Color(0x000000) },
+      u_lightPosition: { type: "v3", value: light.position },
+      u_ambientLight: { type: "c", value: new THREE.Color(0x000000) },
       // u_mouse: { type: "v2", value: new THREE.Vector2() }
     };
     const material = new THREE.ShaderMaterial({
       uniforms: uniforms,
+      wireframe: true,
       vertexShader: `
         uniform float u_time;
-
+        varying vec3 v_Normal;
+        varying vec3 v_Position;
         vec3 mod289(vec3 x)
         {
           return x - floor(x * (1.0 / 289.0)) * 289.0;
@@ -127,31 +135,51 @@ const SphereAnimation = () => {
           float combinedNoise = mix(noise1, noise2, 0.5);
           float displacement = combinedNoise * 2.9;
           vec3 newPosition = position + normal * displacement;
-          gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition, 1.0);
+          v_Normal = normalize(normalMatrix * normal);
+          v_Position = vec3(modelViewMatrix * vec4(position, 1.0));
+          gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition, 1.0); 
         }
       `,
       fragmentShader: `
+        varying vec3 v_Normal;
+        varying vec3 v_Position;
+        uniform vec3 u_lightPosition;
+        uniform vec3 u_lightColor;
+        uniform vec3 u_ambientLight;
+
         uniform vec2 u_resolution;
         uniform float u_time;
 
         void main() {
           vec2 st = gl_FragCoord.xy/u_resolution.xy;
           gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0);
+
+          vec3 lightDir = normalize(u_lightPosition - v_Position);
+          float diff = max(dot(v_Normal, lightDir), 0.0);
+          vec3 diffuse = diff * u_lightColor;
+          vec3 ambient = u_ambientLight;
+          vec4 color = vec4((ambient + diffuse), 1.0); // Adjust color calculation as needed
+          gl_FragColor = color;
         }
       `,
     });
 
-    const geometry = new THREE.IcosahedronGeometry(16, 20);
+    const geometry = new THREE.IcosahedronGeometry(16, 8);
     const sphere = new THREE.Mesh(geometry, material);
+    sphere.castShadow = true;
+    sphere.receiveShadow = true;
+
+    scene.add(light);
     scene.add(sphere);
-    sphere.material.wireframe = true;
 
     const renderer = new THREE.WebGLRenderer({
       canvas: document.querySelector("#bg") as HTMLCanvasElement,
     });
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setClearColor(0x000000, 1);
+    renderer.setClearColor(0xffffff, 1);
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true; // an animation loop is required when either damping or auto-rotation are enabled
@@ -163,7 +191,7 @@ const SphereAnimation = () => {
       // sphere.rotation.x += 0.01;
       // sphere.rotation.y += 0.005;
       // sphere.rotation.z += 0.01;
-      uniforms.u_time.value += 0.02;
+      uniforms.u_time.value += 0.006;
       renderer.render(scene, camera);
       requestAnimationFrame(animate);
     }
