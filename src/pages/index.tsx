@@ -10,11 +10,12 @@ const SphereAnimation = () => {
     width: 800,
     height: 600,
   });
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
-      75,
+      60,
       window.innerWidth / window.innerHeight,
       0.1,
       1000
@@ -33,6 +34,8 @@ const SphereAnimation = () => {
       u_lightColor: { type: "c", value: new THREE.Color(0xffffff) },
       u_lightPosition: { type: "v3", value: light.position },
       u_ambientLight: { type: "c", value: new THREE.Color(0x000000) },
+      u_mousePosition: { type: "v2", value: new THREE.Vector2(0, 0) },
+      u_cameraPosition: { type: "v3", value: camera.position },
     };
     const material = new THREE.ShaderMaterial({
       uniforms: uniforms,
@@ -41,7 +44,10 @@ const SphereAnimation = () => {
       fragmentShader: fragmentShaderGLSL,
     });
 
-    const geometry = new THREE.IcosahedronGeometry(16, 60);
+    const geometry = new THREE.IcosahedronGeometry(
+      16,
+      theme === "dark" ? 60 : 20
+    );
     const sphere = new THREE.Mesh(geometry, material);
     sphere.castShadow = true;
     sphere.receiveShadow = true;
@@ -81,16 +87,31 @@ const SphereAnimation = () => {
 
     function animate() {
       uniforms.u_time.value += 0.003;
-      renderer.render(scene, camera);
+      const rotationSpeed = 0.002;
+
+      // Update sphere rotation
+      sphere.rotation.x += rotationSpeed;
+      sphere.rotation.y += rotationSpeed;
       requestAnimationFrame(animate);
+      renderer.render(scene, camera);
     }
 
     window.addEventListener("resize", handleResize);
 
     animate();
 
+    const handleMouseMove = (event: any) => {
+      const x = (event.clientX / window.innerWidth) * 2 - 1;
+      const y = -(event.clientY / window.innerHeight) * 2 + 1;
+      setMousePosition({ x, y });
+
+      uniforms.u_mousePosition.value.set(x, y);
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+
     return () => {
       window.removeEventListener("resize", handleResize);
+      window.removeEventListener("mousemove", handleMouseMove);
     };
   }, [theme, windowDimensions]);
 
