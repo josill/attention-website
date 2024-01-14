@@ -118,6 +118,7 @@ const SphereAnimation = () => {
   return (
     <div className="flex flex-col items-center justify-center overflow-hidden">
       <canvas id="bg" className=""></canvas>
+      <h1 className="font-spotnik absolute text-[90px] text-gray-900">Attention</h1>
     </div>
   );
 };
