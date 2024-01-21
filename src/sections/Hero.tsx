@@ -29,7 +29,7 @@ export default function Hero() {
       1000
     );
     camera.position.setZ(70);
-  
+
     const light = new THREE.SpotLight(0xffffff, 100);
     light.castShadow = true;
     light.position.set(0, 0, 0);
