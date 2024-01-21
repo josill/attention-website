@@ -1,14 +1,11 @@
 import React from "react";
-import Hero from "@/sections/Hero";
-import Services from "@/sections/Services";
+import Hero from "../sections/Hero";
 
-const SphereAnimation = () => {
+export default function Index() {
+
   return (
-    <div className="flex flex-col items-center justify-center overflow-hidden font-beVietnam bg-bgWhite dark:bg-black">
+    <div className="flex flex-col items-center justify-center font-beVietnam bg-bgWhite dark:bg-black">
       <Hero />
-      <Services />
     </div>
   );
 };
-
-export default SphereAnimation;

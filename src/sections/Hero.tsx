@@ -17,14 +17,19 @@ export default function Hero() {
     const backgroundColor = theme === 'light' ? new THREE.Color(252 / 255, 253 / 255, 255 / 255) : null;
     scene.background = backgroundColor;
 
+    const width = window.innerWidth;
+    const header = document.querySelector("nav") || { clientHeight: 0 };
+    const titleBlock = document.getElementById("title-block") || { clientHeight: 0 };
+    const height = window.innerHeight - header.clientHeight - titleBlock.clientHeight;
+
     const camera = new THREE.PerspectiveCamera(
       60,
-      window.innerWidth / window.innerHeight,
+      window.innerWidth / height,
       0.1,
       1000
     );
     camera.position.setZ(70);
-
+  
     const light = new THREE.SpotLight(0xffffff, 100);
     light.castShadow = true;
     light.position.set(0, 0, 0);
@@ -62,12 +67,6 @@ export default function Hero() {
       canvas: document.querySelector("#bg") as HTMLCanvasElement,
     });
     renderer.setPixelRatio(window.devicePixelRatio);
-
-    const width = window.innerWidth;
-    const header = document.querySelector("nav") || { clientHeight: 0 };
-    const titleBlock = document.getElementById("title-block") || { clientHeight: 0 };
-    const height = window.innerHeight - header.clientHeight - titleBlock.clientHeight;
-
     renderer.setSize(width, height);
     const clearColor = theme === "dark" ? 0x000000 : 0xffffff;
     renderer.setClearColor(clearColor);
@@ -124,12 +123,12 @@ export default function Hero() {
   }, [theme, windowDimensions]);
 
   return (
-    <div>
-        <div className="flex flex-col justify-center items-center px-4" id="title-block">
-          <h2 className="text-[20px] text-darkGray mt-8 mb-4">Empowering tomorrow</h2>
-          <h1 className="text-[30px] text-lightGray text-center px-4">Innovative <span className="text-lightBlue dark:text-darkBlue">IT Solutions</span> for a connected world</h1>
-        </div>
-        <canvas id="bg" />
+    <div className="flex flex-col">
+      <div className="flex flex-col justify-center items-center px-4" id="title-block">
+        <h2 className="text-[20px] text-darkGray mt-8 mb-4">Empowering tomorrow</h2>
+        <h1 className="text-[30px] text-lightGray text-center px-4">Innovative <span className="text-lightBlue dark:text-darkBlue">IT Solutions</span> for a connected world</h1>
+      </div>
+      <canvas id="bg" />
     </div>
   )
 }
