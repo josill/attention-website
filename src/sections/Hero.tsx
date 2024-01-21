@@ -14,13 +14,16 @@ export default function Hero() {
 
   useEffect(() => {
     const scene = new THREE.Scene();
-    const backgroundColor = theme === 'light' ? new THREE.Color(252 / 255, 253 / 255, 255 / 255) : null;
-    scene.background = backgroundColor;
+    const loader = new THREE.TextureLoader();
+    scene.background = loader.load(theme === "dark" ? "landing/grid-dark.png" : "landing/grid-light.png");
 
     const width = window.innerWidth;
     const header = document.querySelector("nav") || { clientHeight: 0 };
-    const titleBlock = document.getElementById("title-block") || { clientHeight: 0 };
-    const height = window.innerHeight - header.clientHeight - titleBlock.clientHeight;
+    const titleBlock = document.getElementById("title-block") || {
+      clientHeight: 0,
+    };
+    const height =
+      window.innerHeight - header.clientHeight - titleBlock.clientHeight;
 
     const camera = new THREE.PerspectiveCamera(
       60,
@@ -84,7 +87,7 @@ export default function Hero() {
       if (typeof window !== "undefined") {
         setWindowDimensions({
           width: window.innerWidth,
-          height: window.innerHeight,
+          height: height,
         });
 
         camera.aspect = windowDimensions.width / windowDimensions.height;
@@ -124,11 +127,22 @@ export default function Hero() {
 
   return (
     <div className="flex flex-col">
-      <div className="flex flex-col justify-center items-center px-4" id="title-block">
-        <h2 className="text-[20px] text-darkGray mt-8 mb-4">Empowering tomorrow</h2>
-        <h1 className="text-[30px] text-lightGray text-center px-4">Innovative <span className="text-lightBlue dark:text-darkBlue">IT Solutions</span> for a connected world</h1>
+      <div
+        className="flex flex-col justify-center items-center"
+        id="title-block"
+      >
+        <h2 className="text-[20px] text-darkGray mt-8 mb-4">
+          Empowering tomorrow
+        </h2>
+        <h1 className="text-[30px] text-lightGray text-center px-4">
+          Innovative{" "}
+          <span className="text-lightBlue dark:text-darkBlue">
+            IT Solutions
+          </span>{" "}
+          for a connected world
+        </h1>
       </div>
       <canvas id="bg" />
     </div>
-  )
+  );
 }
