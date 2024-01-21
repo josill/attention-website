@@ -10,6 +10,7 @@ const config: Config = {
   theme: {
     fontFamily: {
       spotnik: ['Spotnik', 'sans-serif'],
+      beVietnam: ['Be Vietnam Pro', 'sans-serif'],
     },
     extend: {
       backgroundImage: {
@@ -17,6 +18,14 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      colors: {
+        bgWhite: "#FCFDFF",
+        lightGray: "#A4B3C9",
+        darkGray: "#C0C0C0",
+        gray: "#3184FF",
+        darkBlue: "#2A518C",
+        lightBlue: "#3184FF",
+      }
     },
   },
   plugins: [],

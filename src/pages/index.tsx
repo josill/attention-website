@@ -20,7 +20,7 @@ const SphereAnimation = () => {
       0.1,
       1000
     );
-    camera.position.setZ(50);
+    camera.position.setZ(60);
 
     const light = new THREE.SpotLight(0xffffff, 100);
     light.castShadow = true;
@@ -59,7 +59,13 @@ const SphereAnimation = () => {
       canvas: document.querySelector("#bg") as HTMLCanvasElement,
     });
     renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setSize(window.innerWidth, window.innerHeight);
+
+    const width = window.innerWidth;
+    const header = document.querySelector("nav") || { clientHeight: 0 };
+    const titleBlock = document.getElementById("title-block") || { clientHeight: 0 };
+    const height = window.innerHeight - header.clientHeight - titleBlock.clientHeight;
+
+    renderer.setSize(width, height);
     const clearColor = theme === "dark" ? 0x000000 : 0xffffff;
     renderer.setClearColor(clearColor);
     renderer.shadowMap.enabled = true;
@@ -79,11 +85,21 @@ const SphereAnimation = () => {
           height: window.innerHeight,
         });
 
-        camera.aspect = windowDimensions.width / windowDimensions.height;
-        camera.updateProjectionMatrix();
-        renderer.setSize(windowDimensions.width, windowDimensions.height);
+        const canvas = renderer.domElement;
+        const width = canvas.clientWidth;
+        const header = document.querySelector("nav") || { clientHeight: 0 };
+        const titleBlock = document.getElementById("title-block") || { clientHeight: 0 };
+        const height = canvas.clientHeight - header.clientHeight - titleBlock.clientHeight;
+
+        const needResize = canvas.width !== width || canvas.height !== height;
+        if (needResize) {
+          renderer.setSize(width, height, false);
+        }
+
+        return needResize;
       }
     };
+    window.addEventListener("resize", handleResize);
 
     function animate() {
       uniforms.u_time.value += 0.003;
@@ -92,11 +108,16 @@ const SphereAnimation = () => {
       // Update sphere rotation
       sphere.rotation.x += rotationSpeed;
       sphere.rotation.y += rotationSpeed;
-      requestAnimationFrame(animate);
-      renderer.render(scene, camera);
-    }
 
-    window.addEventListener("resize", handleResize);
+      if (handleResize()) {
+        const canvas = renderer.domElement;
+        camera.aspect = canvas.clientWidth / canvas.clientHeight;
+        camera.updateProjectionMatrix();
+      }
+
+      renderer.render(scene, camera);
+      requestAnimationFrame(animate);
+    }
 
     animate();
 
@@ -116,9 +137,13 @@ const SphereAnimation = () => {
   }, [theme, windowDimensions]);
 
   return (
-    <div className="flex flex-col items-center justify-center overflow-hidden">
-      <canvas id="bg" className=""></canvas>
-      <h1 className="font-spotnik absolute text-[90px] text-gray-900">Attention</h1>
+    <div className="flex flex-col items-center justify-center overflow-hidden font-beVietnam bg-bgWhite dark:bg-black">
+      <div className="flex flex-col justify-center items-center px-4" id="title-block">
+        <h2 className="text-[20px] text-darkGray mt-8 mb-4">Empowering tomorrow</h2>
+        <h1 className="text-[30px] text-lightGray text-center px-4">Innovative <span className="text-lightBlue dark:text-darkBlue">IT Solutions</span> for a connected world</h1>
+      </div>  
+      <canvas id="bg" />
+      {/* <h1 className="font-spotnik absolute text-[90px] text-gray-900">Attention</h1> */}
     </div>
   );
 };

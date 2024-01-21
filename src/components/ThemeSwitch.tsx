@@ -21,9 +21,6 @@ const ThemeSwitch = (props: any) => {
   useEffect(() => setMounted(true));
   return (
     <div className="flex flex-col gap-2">
-      <span className="text-gray-700 dark:text-gray-200 p-1 sm:px-3 sm:py-2 ">
-        Current theme: {mounted && resolvedTheme}
-      </span>
       <Component {...getBaseProps()}>
         <VisuallyHidden>
           <input {...getInputProps()} />
