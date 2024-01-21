@@ -7,6 +7,7 @@ const config: Config = {
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     fontFamily: {
@@ -26,6 +27,7 @@ const config: Config = {
         customBlack: "#1A1A1A",
         gray: "#3184FF",
         darkBlue: "#2A518C",
+        darkBlue2: "#274D86",
         lightBlue: "#3184FF",
         lightBlue2: "#9CAFCD",
       }
@@ -34,11 +36,11 @@ const config: Config = {
   plugins: [
     nextui({
       primary: {
-        DEFAULT: "#9CAFCD",
+        DEFAULT: "#000000",
         foreground: "#000000",
       },
       secondary: {
-        DEFAULT: "#1A1A1A",
+        DEFAULT: "#FFFFFF",
         foreground: "#FFFFFF",
       },
     }),

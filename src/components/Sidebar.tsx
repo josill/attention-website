@@ -15,7 +15,7 @@ export default function Sidebar({ isOpen }: { isOpen: boolean }) {
       <p>Our work</p>
       <p>The team</p>
       <p>Why us</p>
-      <button>Contact us</button>
+      <button className='p-2 px-4 rounded-[27px] bg-white text-darkBlue2 text-[18px] shadow-xl'>Contact us</button>
     </div>
   );
 }

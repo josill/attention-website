@@ -65,11 +65,13 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 8px;
-  width: 50vw;
-  height: 70vh;
+  gap: 30px;
+  width: 60vw;
+  height: fit-content;
+  padding-top: 30px;
+  padding-bottom: 30px;
   right: 0;
-  top: 15%;
+  top: 25%;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
   font-size: 26px;
@@ -84,4 +86,8 @@ body {
 
 .sidebar.closed {
   animation-name: slideOut;
+}
+
+canvas {
+  touch-action: auto!important;
 }
