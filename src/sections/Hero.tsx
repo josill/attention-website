@@ -126,14 +126,14 @@ export default function Hero() {
   }, [theme, windowDimensions]);
 
   return (
-    <div className="flex flex-col">
+    <section className="flex flex-col">
       <div
         className="flex flex-col justify-center items-center"
         id="title-block"
       >
-        <h2 className="text-[20px] text-darkGray mt-8 mb-4">
+        <h3 className="text-[20px] text-darkGray mt-8 mb-4">
           Empowering tomorrow
-        </h2>
+        </h3>
         <h1 className="text-[30px] text-lightGray text-center px-4">
           Innovative{" "}
           <span className="text-lightBlue dark:text-darkBlue">
@@ -143,6 +143,6 @@ export default function Hero() {
         </h1>
       </div>
       <canvas id="bg" />
-    </div>
+    </section>
   );
 }

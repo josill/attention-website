@@ -22,12 +22,16 @@ const config: Config = {
       },
       colors: {
         bgWhite: "#FCFDFF",
+        paragraphGray: "#999",
+        customGray: "#474747",
+        lineGray: "#C1CCDC",
         lightGray: "#A4B3C9",
         darkGray: "#C0C0C0",
         customBlack: "#1A1A1A",
         gray: "#3184FF",
         darkBlue: "#2A518C",
         darkBlue2: "#274D86",
+        darkBlue3: "#0D2140",
         lightBlue: "#3184FF",
         lightBlue2: "#9CAFCD",
       }
