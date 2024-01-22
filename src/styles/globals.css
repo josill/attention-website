@@ -86,7 +86,7 @@ h2 {
   border-bottom-left-radius: 20px;
   font-size: 26px;
   opacity: 0;
-  animation-duration: 0.3s;
+  animation-duration: 0.6s;
   animation-fill-mode: both;
 }
 
@@ -98,6 +98,24 @@ h2 {
   animation-name: slideOut;
 }
 
+.service-card {
+ transition: all 0.3s ease-in-out;
+}
+
+.service-card.open {
+  opacity: 1;
+}
+
+.service-card.closed {
+  opacity: 0;
+}
+
 canvas {
   touch-action: auto!important;
+}
+
+.darkCard {
+  border-radius: 30px;
+  background: url('/services/dark-card-background.png'), lightgray 0% 0% / 100px 100px repeat, linear-gradient(180deg, #272B34 0%, #1F2325 46%, #20222D 100%);
+  background-blend-mode: darken, normal;
 }

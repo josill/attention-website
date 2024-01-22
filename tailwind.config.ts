@@ -34,6 +34,7 @@ const config: Config = {
         darkBlue3: "#0D2140",
         lightBlue: "#3184FF",
         lightBlue2: "#9CAFCD",
+        orange: "#FC8D39",
       }
     },
   },
