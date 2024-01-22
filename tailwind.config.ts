@@ -12,7 +12,7 @@ const config: Config = {
   theme: {
     fontFamily: {
       spotnik: ['Spotnik', 'sans-serif'],
-      beVietnam: ['Be Vietnam Pro', 'sans-serif'],
+      beVietnam: ['Be Vietnam', 'sans-serif'],
     },
     extend: {
       backgroundImage: {
@@ -25,6 +25,8 @@ const config: Config = {
         paragraphGray: "#999",
         customGray: "#474747",
         lineGray: "#C1CCDC",
+        gridLight: "#DFDFDF",
+        gridDark: "#535353",
         lightGray: "#A4B3C9",
         darkGray: "#C0C0C0",
         customBlack: "#1A1A1A",
@@ -35,7 +37,12 @@ const config: Config = {
         lightBlue: "#3184FF",
         lightBlue2: "#9CAFCD",
         orange: "#FC8D39",
-      }
+        red: "#AE3318",
+        darkRed: "#854132"
+      },
+      boxShadow: {
+        small: '5px 5px 10px #888888',
+      },
     },
   },
   plugins: [

@@ -8,27 +8,34 @@ import SoftwareDevelopmentCard from "@/components/SoftwareDevelopmentCard";
 
 export default function Index({ isOpen }: { isOpen: boolean }) {
   const [isMobile, setIsMobile] = useState(false);
-  const [expandedCards, setExpandedCards] = useState<number[]>([]);
+  // const [expandedCards, setExpandedCards] = useState<number[]>([]);
 
-  const content = [
-    {
-      iconPath: "/services/e-commerce.svg",
-      css: "bg-darkBlue dark:bg-[#383838] border-3 border-darkBlue3 dark:border-orange",
-      header: "E-commerce",
-      description:
-        "We can build, integrate all the products from inital start to maintenance.",
-    },
-  ];
+  // const content = [
+  //   {
+  //     iconPath: "/services/e-commerce.svg",
+  //     css: "bg-darkBlue dark:bg-[#383838] shadow-small dark:border-3 dark:border-orange",
+  //     header: "E-commerce",
+  //     description:
+  //       "We can build, integrate all the products from inital start to maintenance.",
+  //   },
+  //   {
+  //     iconPath: "/services/e-commerce.svg",
+  //     css: "bg-darkBlue dark:bg-[#383838] shadow-small dark:border-3 dark:border-orange",
+  //     header: "E-commerce",
+  //     description:
+  //       "We can build, integrate all the products from inital start to maintenance.",
+  //   },
+  // ];
 
-  const handleCardClick = (index: number) => {
-    setExpandedCards((prevExpandedCards) => {
-      if (prevExpandedCards.includes(index)) {
-        return prevExpandedCards.filter((item) => item !== index);
-      } else {
-        return [...prevExpandedCards, index];
-      }
-    });
-  };
+  // const handleCardClick = (index: number) => {
+  //   setExpandedCards((prevExpandedCards) => {
+  //     if (prevExpandedCards.includes(index)) {
+  //       return prevExpandedCards.filter((item) => item !== index);
+  //     } else {
+  //       return [...prevExpandedCards, index];
+  //     }
+  //   });
+  // };
 
   useEffect(() => {
     const checkWindowSize = () => {
@@ -46,17 +53,26 @@ export default function Index({ isOpen }: { isOpen: boolean }) {
   return (
     <div className="flex flex-col items-center justify-center overflow-hidden font-beVietnam bg-bgWhite dark:bg-black">
       {isMobile && isOpen && <Sidebar isOpen={isOpen} />}
-      {/* <div hidden className="flex text-customGray flex-col items-center justify-center min-h-screen">
-        <div id="title-block" className="flex flex-col justify-center items-center">
-          <h2 className='text-customGray dark:text-white font-beVietnam text-[25px]'>Services</h2>
-
-          <h3 className="text-[20px] text-darkGray mt-8 mb-4">Empowering tomorrow</h3>
-          <h1 className="text-[30px] text-lightGray text-center px-4">Innovative <span className="text-lightBlue dark:text-darkBlue">IT Solutions</span> for a connected world</h1>
-        </div>
-        <canvas id="bg" className="w-full"></canvas>
-      </div> */}
+      {/* <section className="flex flex-col mt-[72px]">
+      <div
+        className="flex flex-col justify-center items-center"
+        id="title-block"
+      >
+        <h3 className="text-[20px] text-darkGray mt-8 mb-4">
+          Empowering tomorrow
+        </h3>
+        <h1 className="text-[30px] text-lightGray text-center px-4">
+          Innovative{" "}
+          <span className="text-lightBlue dark:text-darkBlue">
+            IT Solutions
+          </span>{" "}
+          for a connected world
+        </h1>
+      </div>
+      <canvas id="bg" />
+    </section> */}
       <Hero />
-      <section className="flex flex-col justify-center items-center">
+      {/* <section className="flex flex-col justify-center items-center">
         <div className="flex flex-row justify-between items-center w-[100vw]">
           <div className="border border-[0.25px] border-lineGray w-1/4"></div>
           <h2 className="text-customGray dark:text-white text-[25px] font-beVietnam font-light">
@@ -64,7 +80,11 @@ export default function Index({ isOpen }: { isOpen: boolean }) {
           </h2>
           <div className="border border-[0.25px] border-lineGray w-1/4"></div>
         </div>
-        <div className="w-[calc(100vw-4em)] flex flex-col items-start justify-center py-8 px-8 mt-8 rounded-[30px] border border-[0.25px] border-lineGray font-beVietnam dark:bg-[url('/services/service-card-background.png')] bg-cover bg-center bg-blend-darken bg-blend-normal linear-gradient(to bottom, #272B34 0%, #1F2325 46%, #20222D 100%)">
+        <div
+          className="w-[calc(100vw-4em)] z-10 relative flex flex-col items-start justify-center py-8 px-8 mt-8 shadow-small
+        rounded-[30px] border border-[0.25px] border-lineGray font-beVietnam dark:bg-[url('/services/service-card-background.png')] 
+        bg-cover bg-center bg-blend-darken bg-blend-normal linear-gradient(to bottom, #272B34 0%, #1F2325 46%, #20222D 100%)"
+        >
           <h3 className="text-black dark:text-white text-[20px] font-semibold">
             Software development
           </h3>
@@ -72,6 +92,7 @@ export default function Index({ isOpen }: { isOpen: boolean }) {
             Lorem ipsum dolor sit amet consectetur. Tortor placerat mauris non
             dolor nullam.
           </p>
+          <div className="flex flex-col gap-y-8">
           {content.map((item, index) => {
             const isExpanded = expandedCards.includes(index);
             const [measureRef, { height }] = useMeasure();
@@ -87,15 +108,21 @@ export default function Index({ isOpen }: { isOpen: boolean }) {
             });
 
             return (
-              <div
-                className={`w-full rounded-[16px] p-4 cursor-pointer ${item.css}`}
-                key={index}
-                onClick={() => handleCardClick(index)}
-              >
-                <div className="flex flex-row">
-                  <img src={item.iconPath} alt={item.header} className="mr-3" />
-                  <h4 className="text-[18px]">{item.header}</h4>
-                </div>
+              <div className="relative">
+                <div className="absolute w-full right-0 top-0 z-0 border-t border-gridLight dark:border-gridDark"></div>
+                <div
+                  className={`w-full rounded-[16px] p-4 cursor-pointer z-20 ${item.css}`}
+                  key={index}
+                  onClick={() => handleCardClick(index)}
+                >
+                  <div className="flex flex-row">
+                    <img
+                      src={item.iconPath}
+                      alt={item.header}
+                      className="mr-3"
+                    />
+                    <h4 className="text-[18px]">{item.header}</h4>
+                  </div>
                   <animated.div
                     style={{ overflow: "hidden", ...animationStyles }}
                   >
@@ -105,13 +132,28 @@ export default function Index({ isOpen }: { isOpen: boolean }) {
                       </p>
                     </div>
                   </animated.div>
+                  <div className="absolute w-full right-0 bottom-0 z-0 border-t border-gridLight dark:border-gridDark"></div>
+                </div>
               </div>
             );
           })}
+          </div>
         </div>
-        {/* <SoftwareDevelopmentCard /> */}
-      </section>
-      {/* <Services /> */}
+      <div
+    className="w-[calc(100vw-4em)] min-h-[350px] z-10 relative flex flex-col items-start py-8 px-8 mt-8 shadow-small
+  rounded-[30px] border border-[0.25px] border-lineGray dark:border-0 font-beVietnam bg-[url('/services/service-maintenance-card-bg-light.svg')]
+  dark:bg-[url('/services/service-maintenance-card-bg-dark.svg')] 
+  bg-cover bg-center bg-blend-darken bg-blend-normal linear-gradient(to bottom, #272B34 0%, #1F2325 46%, #20222D 100%)"
+  >
+    <h3 className="text-red dark:text-white text-[20px] font-semibold">
+      Service Maintenance
+    </h3>
+    <p className="text-[16px] text-darkRed dark:text-white my-4 mt-4">
+      We are always here making sure your systems are in place. In a continuos partnership.
+    </p>
+    </div>
+      </section> */}
+      <Services />
     </div>
   );
 }
