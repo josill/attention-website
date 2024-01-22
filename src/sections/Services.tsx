@@ -1,6 +1,8 @@
 import SoftwareDevelopmentCard from '@/components/SoftwareDevelopmentCard';
 import ServiceMaintenanceCard from '@/components/ServiceMaintenanceCard';
+import CustomSolutionsCard from '@/components/CustomSolutionsCard';
 import React from 'react'
+import TechStackCard from '@/components/TechStackCard';
 
 export default function Services() {
   const softwareDevelopmentCardContent = [
@@ -20,6 +22,63 @@ export default function Services() {
     },
   ];
 
+  const techStacksContent = [
+    {
+      iconPath: "/services/icons/javascript-icon.svg",
+      css: "bg-yellow",
+      height: "50",
+      width: "50",
+    },
+    {
+      iconPath: "/services/icons/python-icon.svg",
+      css: "bg-react-gradient",
+      height: "50",
+      width: "50",
+    },
+    {
+      iconPath: "/services/icons/csharp-icon.svg",
+      css: "bg-csharp-gradient",
+      height: "50",
+      width: "50",
+    },
+    {
+      iconPath: "/services/icons/react-icon.svg",
+      css: "bg-react-gradient",
+      height: "50",
+      width: "50",
+    },
+    {
+      iconPath: "/services/icons/nextjs-icon.svg",
+      css: "bg-react-gradient",
+      height: "50",
+      width: "50",
+    },
+    {
+      iconPath: "/services/icons/node-icon.svg",
+      css: "bg-react-gradient",
+      height: "50",
+      width: "50",
+    },
+    {
+      iconPath: "/services/icons/django-icon.svg",
+      css: "bg-django-gradient",
+      height: "35",
+      width: "35",
+    },
+    {
+      iconPath: "/services/icons/swift-icon3.png",
+      css: "bg-swift-gradient",
+      height: "90",
+      width: "90",
+    },
+    {
+      iconPath: "/services/icons/react-native-icon.svg",
+      css: "bg-react-gradient",
+      height: "50",
+      width: "50",
+    },
+  ];
+
   return (
     <section className="flex flex-col justify-center items-center">
     <div className="flex flex-row justify-between items-center w-[100vw]">
@@ -31,6 +90,8 @@ export default function Services() {
     </div>
     <SoftwareDevelopmentCard content={softwareDevelopmentCardContent} />
     <ServiceMaintenanceCard />
+    <CustomSolutionsCard />
+    <TechStackCard content={techStacksContent} />
   </section>
   )
 }

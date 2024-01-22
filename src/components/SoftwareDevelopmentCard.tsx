@@ -27,7 +27,7 @@ export default function SoftwareDevelopmentCard({ content }: SoftwareDevelopment
   };
   return (
     <div
-    className="w-[calc(100vw-4em)] z-10 relative flex flex-col items-start justify-center py-8 px-8 mt-8 shadow-small
+    className="w-[calc(100vw-4em)] min-h[250px] z-10 relative flex flex-col items-start justify-center py-4 pb-8 px-8 mt-8 shadow-small
   rounded-[30px] border border-[0.25px] border-lineGray dark:border-0 font-beVietnam dark:bg-[url('/services/software-development-card-bg.png')] 
   bg-cover bg-center bg-blend-darken bg-blend-normal linear-gradient(to bottom, #272B34 0%, #1F2325 46%, #20222D 100%)"
   >
