@@ -31,6 +31,7 @@ export default function TechStackCard({ content }: TechStackCardProps) {
           return (
             <div
               className={`flex w-[70px] h-[70px] items-center justify-center ${icon.css} p-2 rounded-[18px]`}
+              key={index}
             >
               <img
                 src={icon.iconPath}
