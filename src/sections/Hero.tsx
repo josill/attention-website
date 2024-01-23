@@ -126,7 +126,7 @@ export default function Hero() {
   }, [theme, windowDimensions]);
 
   return (
-    <section className="flex flex-col mt-[72px]">
+    <section className="flex flex-col mt-[72px]" id="hero">
       <div
         className="flex flex-col justify-center items-center"
         id="title-block"

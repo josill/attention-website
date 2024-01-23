@@ -5,6 +5,7 @@ import { ThemeProvider } from "next-themes";
 import Header from "@/components/Header";
 import Index from ".";
 import { NextUIProvider } from "@nextui-org/react";
+import Footer from "@/components/Footer";
 
 export default function App({ Component, pageProps }: AppProps) {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,6 +16,8 @@ export default function App({ Component, pageProps }: AppProps) {
         <Header isOpen={isOpen} setIsOpen={setIsOpen} />
         <Index isOpen={isOpen} />
         {/* <Component {...pageProps} /> */}
+        <Footer />
+
       </ThemeProvider>
     </NextUIProvider>
   );
