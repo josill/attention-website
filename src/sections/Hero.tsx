@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import * as THREE from "three";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { vertexShaderGLSL, fragmentShaderGLSL } from "../shaders";
 import { useTheme } from "next-themes";
 

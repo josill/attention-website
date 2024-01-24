@@ -7,8 +7,12 @@ export default function Document() {
       <body>
         <Main />
         <NextScript />
+        <script
+          type="text/javascript"
+          src="https://cdn.jsdelivr.net/npm/three@0.143/build/three.min.js"
+          async
+        />
       </body>
-      <script src="https://cdn.jsdelivr.net/npm/three@0.143/build/three.min.js"></script>
     </Html>
   )
 }

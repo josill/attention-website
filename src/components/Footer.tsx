@@ -4,7 +4,7 @@ import handleClick from "@/utils/ScrollHandler";
 export default function Footer() {
   
     return (
-    <div className="flex flex-col justify-center items-center bg-white dark:bg-black text-textGray8 dark:text-lighGray3 text-[16px]">
+    <div className="flex flex-col justify-center items-center bg-bgWhite dark:bg-black text-textGray8 dark:text-lighGray3 text-[16px]">
       <div className="flex flex-col items-center justify-center gap-y-[20px] border-y border-lightGray2 dark:border-darkGray3 py-[20px] mt-[80px] w-full"
       onClick={(e) => handleClick(e)}
       >
