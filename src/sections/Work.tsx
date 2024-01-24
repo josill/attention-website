@@ -1,13 +1,14 @@
 import React, { useState, useRef } from 'react'
 import { useTheme } from "next-themes";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
+import { EffectCoverflow, Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
+import CarouselItemWork from '@/components/CarouselItemWork';
+import { Swiper as SwiperType } from "swiper/types";
+
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-import CarouselItemWork from '@/components/CarouselItemWork';
-import { Swiper as SwiperType } from "swiper/types";
 
 export default function Work() {
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -51,7 +52,7 @@ export default function Work() {
 
     const handleSlideChange = (swiper: SwiperType) => {
         setCurrentSlide(() => swiper.activeIndex);
-    };    
+    };
 
     return (
         <section className="aspect-auto flex flex-col justify-center items-center mt-10" id='our-work'>
@@ -70,46 +71,51 @@ export default function Work() {
                     Lorem ipsum dolor sit amet consectetur. Ipsum vitae id sed dignissim tincidunt. Vehicula tortor sit condimentum eu nunc mauris pellentesque massa.
                 </p>
             </div>
+            {/* <Swiper
+                className={carouselItems.length > 1 ? "cursor-pointer" : ""}
+                cssMode={true}
+                slidesPerView={1}
+                modules={[Navigation, Scrollbar, A11y, Pagination]}
+                onSlideChange={(swiperRef) => handleSlideChange(swiperRef)}
+                onInit={(swiper: any) => {
+                    swiper.params.navigation.prevEl = prevRef.current;
+                    swiper.params.navigation.nextEl = nextRef.current;
+                    swiper.navigation.init();
+                    swiper.navigation.update();
+                }}
+                lazyPreloadPrevNext={2}
+            > */}
             <Swiper
-            className={carouselItems.length > 1 ? "cursor-pointer" : ""}
-            cssMode={true}
-            slidesPerView={1}
-            modules={[Navigation, Scrollbar, A11y, Pagination]}
-            onSlideChange={(swiperRef) => handleSlideChange(swiperRef)}
-            onInit={(swiper: any) => {
-              swiper.params.navigation.prevEl = prevRef.current;
-              swiper.params.navigation.nextEl = nextRef.current;
-              swiper.navigation.init();
-              swiper.navigation.update();
-            }}
-            lazyPreloadPrevNext={2}
+                effect={'coverflow'}
+                grabCursor={true}
+                centeredSlides={true}
+                slidesPerView={'auto'}
+                coverflowEffect={{
+                    rotate: 50,
+                    stretch: 0,
+                    depth: 100,
+                    modifier: 1,
+                    slideShadows: true,
+                }}
+                pagination={true}
+                modules={[EffectCoverflow, Pagination]}
+                className="mySwiper"
             >
                 <button
-          className={`prev-button z-50 ${
-            currentSlide == 0 ? "swiper-button-disabled" : ""
-          }`}
-          ref={prevRef}
-        ></button>
-        <button
-          className={`next-button z-50 ${
-            currentSlide === carouselItems.length - 1 ? "swiper-button-disabled" : ""
-          }`}
-          ref={nextRef}
-        ></button>
-                {/* {carouselItems.map((item, index) => (
+                    className={`prev-button z-50 ${currentSlide == 0 ? "swiper-button-disabled" : ""
+                        }`}
+                    ref={prevRef}
+                ></button>
+                <button
+                    className={`next-button z-50 ${currentSlide === carouselItems.length - 1 ? "swiper-button-disabled" : ""
+                        }`}
+                    ref={nextRef}
+                ></button>
+                {carouselItems.map((item, index) => (
                     <SwiperSlide key={index}>
                         <CarouselItemWork {...item} />
                     </SwiperSlide>
-                ))} */}
-                <SwiperSlide>
-                    <div>11111111111111111111111111111111111111 <img src='/why-us/dash-icon-dark.svg' /></div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div>22222222222222222222222222222222222222<img src='/why-us/dash-icon-dark.svg' /></div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div>33333333333333333333333333333333333333<img src='/why-us/dash-icon-dark.svg' /></div>
-                </SwiperSlide>
+                ))}
             </Swiper>
         </section>
     )

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useSpring, animated, config } from "react-spring";
 import useMeasure from "react-use-measure";
 import Hero from "@/sections/Hero";
@@ -6,6 +6,10 @@ import Sidebar from "@/components/Sidebar";
 import Services from "@/sections/Services";
 import SoftwareDevelopmentCard from "@/components/SoftwareDevelopmentCard";
 import { useTheme } from "next-themes";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { EffectCoverflow, Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
+import CarouselItemWork from '@/components/CarouselItemWork';
+import { Swiper as SwiperType } from "swiper/types";
 import OurWork from "@/sections/Work";
 import Team from "@/sections/Team";
 import WhyUs from "@/sections/WhyUs";
@@ -14,6 +18,10 @@ import Contact from "@/sections/Contact";
 export default function Index({ isOpen }: { isOpen: boolean }) {
   const [isMobile, setIsMobile] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const prevRef = useRef<HTMLButtonElement | null>(null);
+  const nextRef = useRef<HTMLButtonElement | null>(null);
   // const [expandedCards, setExpandedCards] = useState<number[]>([]);
 
   // const content = [
@@ -136,6 +144,41 @@ export default function Index({ isOpen }: { isOpen: boolean }) {
       description:
         "Lorem ipsum dolor sit amet consectetur. Ipsum vitae id sed dignissim tincidunt.",
     },
+  ]
+
+  const carouselItems = [
+    {
+      imgPath: '/our-work/latest-works/latest-work-1.png',
+      techStacks: [
+        {
+          iconPath: '/services/icons/swift-icon.svg',
+          techName: 'Swift'
+        },
+        {
+          iconPath: '/services/icons/nextjs-icon.svg',
+          techName: 'Nextjs'
+        }
+      ],
+      title: 'Custom website development',
+      description: 'Fully integrated website solution. We also implemented the invetory system with updated stock overview.',
+      link: '#'
+    },
+    {
+      imgPath: '/our-work/latest-works/latest-work-1.png',
+      techStacks: [
+        {
+          iconPath: '/services/icons/swift-icon.svg',
+          techName: 'Swift'
+        },
+        {
+          iconPath: '/services/icons/nextjs-icon.svg',
+          techName: 'Nextjs'
+        }
+      ],
+      title: 'Custom website development',
+      description: 'Fully integrated website solution. We also implemented the invetory system with updated stock overview.',
+      link: '#'
+    }
   ]
 
   useEffect(() => {
@@ -296,11 +339,11 @@ export default function Index({ isOpen }: { isOpen: boolean }) {
       </div>
       </section> */}
       <Services />
-      {/* <section className="flex flex-col justify-center items-center mt-10">
+      <section className="aspect-auto flex flex-col justify-center items-center mt-10" id='our-work'>
         <div className="flex flex-row justify-between items-center w-[100vw]">
           <div className="border border-[0.25px] border-lineGray w-1/4"></div>
           <h2 className="text-customGray dark:text-white text-[25px] font-beVietnam font-light">
-            Our Work
+            Our work
           </h2>
           <div className="border border-[0.25px] border-lineGray w-1/4"></div>
         </div>
@@ -312,55 +355,67 @@ export default function Index({ isOpen }: { isOpen: boolean }) {
             Lorem ipsum dolor sit amet consectetur. Ipsum vitae id sed dignissim tincidunt. Vehicula tortor sit condimentum eu nunc mauris pellentesque massa.
           </p>
         </div>
-        <div
-          className="w-[calc(100vw-4em)] min-h[250px] z-10 relative flex flex-col items-center justify-center py-4 pb-8 px-8 mt-8
-          rounded-[30px] border border-[0.25px] border-lineGray dark:border-0 font-beVietnam bg-cardGray dark:bg-[url('/our-work/latest-work-card-bg-dark.svg')]
-          bg-cover bg-center bg-blend-darken bg-blend-normal linear-gradient(to bottom, #272B34 0%, #1F2325 46%, #20222D 100%)"
-        >
-          <img
-            src="/our-work/latest-works/latest-work-1.png"
-            alt="latest work 1"
-            height={200}
-            width={300}
-          />
-          <div className="flex gap-x-3 mt-5 text-[20px] text-textGray5">
-            <div className="flex justify-center items-center rounded-[18px] px-2 py-1 gap-x-5 bg-react-gradient shadow-glow-weak">
-              <img
-                src="/services/icons/swift-icon.svg"
-                alt="swift-icon"
-                className="rounded-[10px]"
-                height={30}
-                width={30} />
-              <p className="pr-2">Swift</p>
-            </div>
-            <img src={resolvedTheme === "dark" ? "/our-work/plus-white.svg" : "/our-work/plus-black.svg"} />
-            <div className="flex justify-center items-center rounded-[18px] px-2 py-1 gap-x-5 bg-react-gradient shadow-glow-weak">
-              <img
-                src="/services/icons/nextjs-icon.svg"
-                alt="nextjs-icon"
-                height={30}
-                width={30} />
-              <p className="pr-2">Nextjs</p>
-            </div>
-          </div>
-          <div className="flex flex-col items-start mt-8">
-            <h3 className="text-black dark:text-white text-[20px] font-semibold">
-              Custom website development
-            </h3>
-            <p className="text-[16px] text-paragraphGray dark:text-textGray4 my-4 mt-4">
-              Fully integrated website solution. We also implemented the invetory system with updated stock overview.            </p>
-            <button className="flex text-darkBlue2 text-[20px] gap-x-3 px-4 py-2 mt-[20px] font-light bg-white rounded-[27px] shadow-buttonShadow justify-center items-center">
-              <p>See the work</p>
-              <img
-                src="/our-work/arrow-icon.svg"
-                alt="arrow"
-                className="mt-1"
-               />
-            </button>
-          </div>
-        </div>
-      </section> */}
-      <OurWork />
+        {/* <Swiper
+                className={carouselItems.length > 1 ? "cursor-pointer" : ""}
+                cssMode={true}
+                slidesPerView={1}
+                modules={[Navigation, Scrollbar, A11y, Pagination]}
+                onSlideChange={(swiperRef) => handleSlideChange(swiperRef)}
+                onInit={(swiper: any) => {
+                    swiper.params.navigation.prevEl = prevRef.current;
+                    swiper.params.navigation.nextEl = nextRef.current;
+                    swiper.navigation.init();
+                    swiper.navigation.update();
+                }}
+                lazyPreloadPrevNext={2}
+            > */}
+        {/* <Swiper
+          effect={'coverflow'}
+          grabCursor={true}
+          centeredSlides={true}
+          slidesPerView={'auto'}
+          coverflowEffect={{
+            rotate: 50,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: true,
+          }}
+          pagination={true}
+          modules={[EffectCoverflow, Pagination]}
+          className="mySwiper"
+        > */}
+        <Swiper
+                className={carouselItems.length > 1 ? "cursor-pointer" : ""}
+                cssMode={true}
+                slidesPerView={1}
+                modules={[Navigation, Scrollbar, A11y, Pagination]}
+                onInit={(swiper: any) => {
+                    swiper.params.navigation.prevEl = prevRef.current;
+                    swiper.params.navigation.nextEl = nextRef.current;
+                    swiper.navigation.init();
+                    swiper.navigation.update();
+                }}
+                lazyPreloadPrevNext={2}
+            >
+          <button
+            className={`prev-button z-50 ${currentSlide == 0 ? "swiper-button-disabled" : ""
+              }`}
+            ref={prevRef}
+          ></button>
+          <button
+            className={`next-button z-50 ${currentSlide === carouselItems.length - 1 ? "swiper-button-disabled" : ""
+              }`}
+            ref={nextRef}
+          ></button>
+          {carouselItems.map((item, index) => (
+            <SwiperSlide key={index}>
+              <CarouselItemWork {...item} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </section>
+      {/* <OurWork /> */}
       {/* <section className="flex flex-col justify-center items-center mt-10">
         <div className="flex flex-row justify-between items-center w-[100vw]">
           <div className="border border-[0.25px] border-lineGray w-1/4"></div>
