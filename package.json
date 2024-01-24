@@ -21,6 +21,7 @@
     "react-dom": "^18.2.0",
     "react-scroll": "^1.9.0",
     "react-spring": "^9.7.3",
+    "swiper": "^11.0.5",
     "three": "^0.160.1",
     "three-orbitcontrols": "^2.110.3"
   },
