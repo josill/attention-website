@@ -85,16 +85,21 @@ export default function Hero() {
 
     const handleResize = () => {
       if (typeof window !== "undefined") {
-        setWindowDimensions({
-          width: window.innerWidth,
-          height: height,
-        });
+        const newWidth = window.innerWidth;
 
-        camera.aspect = windowDimensions.width / windowDimensions.height;
-        camera.updateProjectionMatrix();
-        renderer.setSize(windowDimensions.width, windowDimensions.height);
+        if (newWidth !== windowDimensions.width) {
+          setWindowDimensions({
+            width: newWidth,
+            height: height,
+          });
+
+          camera.aspect = newWidth / windowDimensions.height;
+          camera.updateProjectionMatrix();
+          renderer.setSize(newWidth, windowDimensions.height);
+        }
       }
     };
+
     window.addEventListener("resize", handleResize);
 
     function animate() {
