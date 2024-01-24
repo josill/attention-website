@@ -100,6 +100,44 @@ export default function Index({ isOpen }: { isOpen: boolean }) {
   //   },
   // ];
 
+  const whyUsContent = [
+    {
+      iconPathLight: "/why-us/stack-icon-light.svg",
+      iconPathDark: "/why-us/stack-icon-dark.svg",
+      header: "Lorem Ipsum",
+      description:
+        "Lorem ipsum dolor sit amet consectetur. Ipsum vitae id sed dignissim tincidunt.",
+    },
+    {
+      iconPathLight: "/why-us/computer-icon-light.svg",
+      iconPathDark: "/why-us/computer-icon-dark.svg",
+      header: "Lorem Ipsum",
+      description:
+        "Lorem ipsum dolor sit amet consectetur. Ipsum vitae id sed dignissim tincidunt.",
+    },
+    {
+      iconPathLight: "/why-us/check-icon-light.svg",
+      iconPathDark: "/why-us/check-icon-dark.svg",
+      header: "Lorem Ipsum",
+      description:
+        "Lorem ipsum dolor sit amet consectetur. Ipsum vitae id sed dignissim tincidunt.",
+    },
+    {
+      iconPathLight: "/why-us/dash-icon-light.svg",
+      iconPathDark: "/why-us/dash-icon-dark.svg",
+      header: "Lorem Ipsum",
+      description:
+        "Lorem ipsum dolor sit amet consectetur. Ipsum vitae id sed dignissim tincidunt.",
+    },
+    {
+      iconPathLight: "/why-us/cross-icon-light.svg",
+      iconPathDark: "/why-us/cross-icon-dark.svg",
+      header: "Lorem Ipsum",
+      description:
+        "Lorem ipsum dolor sit amet consectetur. Ipsum vitae id sed dignissim tincidunt.",
+    },
+  ]
+
   useEffect(() => {
     const checkWindowSize = () => {
       setIsMobile(window.innerWidth <= 768);
@@ -366,22 +404,41 @@ export default function Index({ isOpen }: { isOpen: boolean }) {
         </div>
       </section> */}
       <Team />
-      <section className="flex flex-col justify-center items-center mt-[60px]" id='why-us'>
+      {/* <section
+        className="flex flex-col justify-center items-center mt-[60px] font-beVietnam"
+        id="why-us"
+      >
         <div className="flex flex-col justify-center items-center w-[100vw]">
-          <h2 className="text-customGray dark:text-white text-[25px] font-beVietnam font-light">
+          <h2 className="text-customGray dark:text-white text-[25px] font-light">
             Why us
           </h2>
-          <div className="w-full flex text-black">
-            <div className="w-full grid grid-cols-5">
-              <div className="bg-[url('/why-us/scratched-bg.svg')] col-span-1 aspect-w-1 aspect-h-1"></div>
-              <div className=""></div>
-              <div className="bg-[url('/why-us/scratched-bg.svg')] col-span-1 min-h-[60px] min-w-[60px]"></div>
+          <div className="w-full flex justify-evenly text-black">
+            <div className="w-full flex flex-row">
+              <div className="min-w-[10px] border-t-[0.5px] border-lightGray2 dark:border-darkGray3"></div>
+              <div className="bg-[url('/why-us/scratched-bg-light.svg')] dark:bg-[url('/why-us/scratched-bg-dark.svg')] min-h-[60px] min-w-[60px] border-x-[0.5px] border-t-[0.5px] border-lightGray2 dark:border-darkGray3"></div>
+              <div className="flex-grow"></div>
             </div>
           </div>
-
+          <div className="w-full flex flex-row border-t-[0.5px] border-lightGray2 dark:border-darkGray3">
+            <div className="min-w-[10px] border-t-[0.5px] border-lightGray2 dark:border-darkGray3"></div>
+            <div className="min-h-[60px] min-w-[60px] border-x-[0.5px] border-t-[0.5px] border-lightGray2 dark:border-darkGray3"></div>
+            <div className="flex flex-col justify-center items-start px-4 py-8 gap-y-[10px] flex-grow text-darkBlue4 dark:text-[#DBDBDB] rounded-[30px] hover:bg-[#272B34] hover:border-3 hover:border-[#4A648B]">
+            <img src={`${resolvedTheme === "light" ? "/why-us/stack-icon-light.svg" : "/why-us/stack-icon-dark.svg"}`} 
+              alt="stack-icon"
+              height={20}
+              width={20}
+            />
+              <h3 className="text-[20px]">Lorem Ipsum</h3>
+              <p className="text-[14px]">
+              Lorem ipsum dolor sit amet consectetur. Ipsum vitae id sed dignissim tincidunt. 
+              </p>
+            </div>
+            <div className="bg-[url('/why-us/scratched-bg-tall-light.svg')] dark:bg-[url('/why-us/scratched-bg-tall-dark.svg')] min-h-[60px] min-w-[60px] border-x-[0.5px] border-t-[0.5px] border-lightGray2 dark:border-darkGray3"></div>
+            <div className="min-w-[20px] border-t-[0.5px] border-lightGray2 dark:border-darkGray3"></div>
+          </div>
         </div>
-      </section>
-      {/* <WhyUs /> */}
+      </section> */}
+      <WhyUs content={whyUsContent} />
       {/* <div className="flex flex-col justify-center items-center gap-y-4 px-8 text-textBlue">
         <h2 className="font-beVietnam text-darkBlue4 dark:text-white text-[30px]">Get in touch today 👋</h2>
         <input placeholder="Name" 
