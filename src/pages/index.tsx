@@ -366,16 +366,22 @@ export default function Index({ isOpen }: { isOpen: boolean }) {
         </div>
       </section> */}
       <Team />
-      {/* <section className="flex flex-col justify-center items-center mt-[60px]">
-        <div className="flex flex-row justify-between items-center w-[100vw]">
-          <div className="border border-[0.25px] border-lineGray w-1/4"></div>
+      <section className="flex flex-col justify-center items-center mt-[60px]" id='why-us'>
+        <div className="flex flex-col justify-center items-center w-[100vw]">
           <h2 className="text-customGray dark:text-white text-[25px] font-beVietnam font-light">
             Why us
           </h2>
-          <div className="border border-[0.25px] border-lineGray w-1/4"></div>
+          <div className="w-full flex text-black">
+            <div className="w-full grid grid-cols-5">
+              <div className="bg-[url('/why-us/scratched-bg.svg')] col-span-1 aspect-w-1 aspect-h-1"></div>
+              <div className=""></div>
+              <div className="bg-[url('/why-us/scratched-bg.svg')] col-span-1 min-h-[60px] min-w-[60px]"></div>
+            </div>
+          </div>
+
         </div>
-      </section>   */}
-      <WhyUs />
+      </section>
+      {/* <WhyUs /> */}
       {/* <div className="flex flex-col justify-center items-center gap-y-4 px-8 text-textBlue">
         <h2 className="font-beVietnam text-darkBlue4 dark:text-white text-[30px]">Get in touch today 👋</h2>
         <input placeholder="Name" 

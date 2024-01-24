@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="61" height="62" viewBox="0 0 61 62" fill="none">
+  <g clip-path="url(#clip0_16_4573)">
+    <line x1="-26.5732" y1="5.23946" x2="31.4268" y2="100.239" stroke="#CFD8E6"/>
+    <line x1="-22.5732" y1="0.239457" x2="35.4268" y2="95.2395" stroke="#CFD8E6"/>
+    <line x1="-18.5732" y1="-4.76054" x2="39.4268" y2="90.2395" stroke="#CFD8E6"/>
+    <line x1="-14.5732" y1="-9.76054" x2="43.4268" y2="85.2395" stroke="#CFD8E6"/>
+    <line x1="-10.5732" y1="-14.7605" x2="47.4268" y2="80.2395" stroke="#CFD8E6"/>
+    <line x1="-6.57325" y1="-19.7605" x2="51.4268" y2="75.2395" stroke="#CFD8E6"/>
+    <line x1="-2.57325" y1="-24.7605" x2="55.4268" y2="70.2395" stroke="#CFD8E6"/>
+    <line x1="1.42675" y1="-29.7605" x2="59.4268" y2="65.2395" stroke="#CFD8E6"/>
+    <line x1="5.42675" y1="-34.7605" x2="63.4268" y2="60.2395" stroke="#CFD8E6"/>
+    <line x1="9.42675" y1="-39.7605" x2="67.4268" y2="55.2395" stroke="#CFD8E6"/>
+    <line x1="13.4268" y1="-44.7605" x2="71.4268" y2="50.2395" stroke="#CFD8E6"/>
+    <line x1="17.4268" y1="-49.7605" x2="75.4268" y2="45.2395" stroke="#CFD8E6"/>
+    <line x1="21.4268" y1="-54.7605" x2="79.4268" y2="40.2395" stroke="#CFD8E6"/>
+    <line x1="25.4268" y1="-59.7605" x2="83.4268" y2="35.2395" stroke="#CFD8E6"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_16_4573">
+      <rect width="61" height="61" fill="white" transform="translate(0 0.5)"/>
+    </clipPath>
+  </defs>
+</svg>
