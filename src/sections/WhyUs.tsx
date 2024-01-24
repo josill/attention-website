@@ -29,12 +29,11 @@ export default function WhyUs({ content }: WhyUsProps) {
             <div className="min-w-[10px] border-t-[0.5px] border-lightGray2 dark:border-darkGray3"></div>
             <div className="bg-[url('/why-us/scratched-bg-light.svg')] dark:bg-[url('/why-us/scratched-bg-dark.svg')] min-h-[60px] min-w-[60px] border-x-[0.5px] border-t-[0.5px] border-lightGray2 dark:border-darkGray3"></div>
             <div className="flex-grow"></div>
-            {/* <div className="bg-[url('/why-us/scratched-bg-light.svg')] dark:bg-[url('/why-us/scratched-bg-dark.svg')] min-h-[60px] min-w-[60px]"></div> */}
           </div>
         </div>
         {content.map((item, index) => {
           return (
-            <div className="w-full flex flex-row border-t-[0.5px] border-lightGray2 dark:border-darkGray3 group">
+            <div className="w-full flex flex-row border-t-[0.5px] border-lightGray2 dark:border-darkGray3 group" key={index}>
               <div className="min-w-[10px] border-t-[0.5px] border-lightGray2 dark:border-darkGray3"></div>
               <div className="min-h-[60px] min-w-[60px] border-x-[0.5px] border-t-[0.5px] border-lightGray2 dark:border-darkGray3"></div>
               <div
@@ -68,11 +67,11 @@ export default function WhyUs({ content }: WhyUsProps) {
             </div>
           );
         })}
-        <div className="w-full flex flex-row border-t-[0.5px] border-lightGray2 dark:border-darkGray3 group">
-          <div className="min-w-[10px] border-y-[0.5px] border-lightGray2 dark:border-darkGray3"></div>
+        <div className="w-full flex flex-row border-y-[0.5px] border-lightGray2 dark:border-darkGray3 group">
+          <div className="min-w-[10px] border-t-[0.5px] border-lightGray2 dark:border-darkGray3"></div>
           <div className="min-h-[60px] min-w-[60px] border-x-[0.5px] border-t-[0.5px] border-lightGray2 dark:border-darkGray3"></div>
           <div
-            className={`flex flex-col justify-center items-center px-8 py-8 gap-y-[20px] flex-grow text-darkBlue4 dark:text-[#DBDBDB] rounded-[30px] hover:border-3 hover:border-darkBlue4
+            className={` relative flex flex-col justify-center items-center px-8 py-8 gap-y-[20px] flex-grow text-darkBlue4 dark:text-[#DBDBDB] rounded-[30px] hover:border-3 hover:border-darkBlue4
                 ${
                   resolvedTheme !== "light" &&
                   "hover:bg-[#272B34] hover:border-[#4A648B]"
@@ -89,7 +88,7 @@ export default function WhyUs({ content }: WhyUsProps) {
               width={45}
             />
             <h3 className="text-[20px] font-semibold">Want to know more?</h3>
-            <img className="absolute bottom--8 animate-ping"
+            <img className="contact-arrow animate-pulse"
               src={`${
                 resolvedTheme === "light"
                   ? "/why-us/arrow-icon-light.svg"

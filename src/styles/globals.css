@@ -122,3 +122,8 @@ canvas {
   background: url('/services/dark-card-background.png'), lightgray 0% 0% / 100px 100px repeat, linear-gradient(180deg, #272B34 0%, #1F2325 46%, #20222D 100%);
   background-blend-mode: darken, normal;
 }
+
+.contact-arrow {
+  position: absolute;
+  bottom: -4em;
+}
