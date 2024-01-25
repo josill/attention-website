@@ -1,5 +1,5 @@
 import React from "react";
-import handleClick from "@/utils/ScrollHandler";
+import handleClick from "@/utils/scroll";
 
 export default function Footer() {
   
