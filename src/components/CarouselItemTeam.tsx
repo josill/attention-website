@@ -3,9 +3,9 @@ import { CarouselItemTeamProps } from '@/pages/types'
 
 export default function CarouselItemTeam({ imgPath, position, name, description, link }: CarouselItemTeamProps) {
     return (
-        <div className="w-full flex items-center justify-center px-8">
+        <div className="max-w-[100vw] flex items-center justify-center px-8">
             <div
-                className="max-w-[80vw] min-h[250px] z-10 relative flex flex-col items-center justify-center py-4 pb-8 px-4 mt-8
+                className="min-h[250px] z-10 relative flex flex-col items-center justify-center py-4 pb-8 px-4 mt-8
             rounded-[30px] border border-[0.25px] border-lineGray dark:border-0 font-beVietnam bg-cardGray dark:bg-[url('/our-work/latest-work-card-bg-dark.svg')]
             bg-cover bg-center bg-blend-darken bg-blend-normal linear-gradient(to bottom, #272B34 0%, #1F2325 46%, #20222D 100%)"
             >

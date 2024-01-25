@@ -40,7 +40,7 @@ export default function Team() {
     },
   ]
   return (
-    <section className="flex flex-col justify-center items-center mt-10" id='team'>
+    <section className="flex flex-col justify-center items-center mt-10 w-[100vw]" id='team'>
       <div className="flex flex-row justify-between items-center w-[100vw]">
         <div className="border border-[0.25px] border-lineGray w-1/4"></div>
         <h2 className="text-customGray dark:text-white text-[25px] font-beVietnam font-light">
