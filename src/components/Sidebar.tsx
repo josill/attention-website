@@ -1,12 +1,30 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import ThemeSwitch from './ThemeSwitch';
 import handleClick from '@/utils/ScrollHandler';
 
-export default function Sidebar({ isOpen }: { isOpen: boolean }) {
+export default function Sidebar({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: React.Dispatch<React.SetStateAction<boolean>>}) {
+  const sidebarRef = useRef<HTMLDivElement>(null);
+
   const animationClasses = isOpen ? `sidebar open` : `sidebar closed`;
+
+  useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+      const burgerMenuElement = document.getElementById('burger-menu');
+      if (sidebarRef.current && !sidebarRef.current.contains(event.target as Node) && isOpen && event.target !== burgerMenuElement) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleOutsideClick);
+
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+    };
+  }, []);
 
   return (
     <div
+      ref={sidebarRef}
       className={`
         ${animationClasses} z-20 bg-lightBlue2 dark:bg-customBlack dark:border-l dark:border-y dark:border-l-2 dark:border-y-2
       `}

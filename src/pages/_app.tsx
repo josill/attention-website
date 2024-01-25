@@ -13,8 +13,8 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <NextUIProvider>
       <ThemeProvider attribute="class">
-        <Header isOpen={isOpen} setIsOpen={setIsOpen} />
-        <Index isOpen={isOpen} />
+        <Header sidebarOpen={isOpen} setSidebarOpen={setIsOpen} />
+        <Index sidebarOpen={isOpen} setSidebarOpen={setIsOpen} />
         {/* <Component {...pageProps} /> */}
         <Footer />
 

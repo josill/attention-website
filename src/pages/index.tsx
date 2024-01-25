@@ -20,7 +20,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-export default function Index({ isOpen }: { isOpen: boolean }) {
+export default function Index({ sidebarOpen, setSidebarOpen }: { sidebarOpen: boolean, setSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>}) {
   const [isMobile, setIsMobile] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
 
@@ -201,7 +201,7 @@ export default function Index({ isOpen }: { isOpen: boolean }) {
   }, []);
   return (
     <div className="flex flex-col items-center justify-center overflow-hidden font-beVietnam bg-bgWhite dark:bg-black">
-      {isMobile && isOpen && <Sidebar isOpen={isOpen} />}
+      {isMobile && sidebarOpen && <Sidebar isOpen={sidebarOpen} setIsOpen={setSidebarOpen} />}
       {/* <section className="flex flex-col mt-[72px]">
       <div
         className="flex flex-col justify-center items-center"
