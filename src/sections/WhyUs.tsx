@@ -95,7 +95,7 @@ export default function WhyUs({ content }: WhyUsProps) {
                   ? "/why-us/arrow-icon-light.svg"
                   : "/why-us/arrow-icon-dark.svg"
               }`}
-              alt="mail icon"
+              alt="mail icon" 
               height={90}
               width={90}
             />
