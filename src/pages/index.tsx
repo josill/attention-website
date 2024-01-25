@@ -15,6 +15,11 @@ import Team from "@/sections/Team";
 import WhyUs from "@/sections/WhyUs";
 import Contact from "@/sections/Contact";
 
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+
 export default function Index({ isOpen }: { isOpen: boolean }) {
   const [isMobile, setIsMobile] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
@@ -339,7 +344,7 @@ export default function Index({ isOpen }: { isOpen: boolean }) {
       </div>
       </section> */}
       <Services />
-      <section className="aspect-auto flex flex-col justify-center items-center mt-10" id='our-work'>
+      <section className="flex flex-col justify-center items-center mt-10" id='our-work'>
         <div className="flex flex-row justify-between items-center w-[100vw]">
           <div className="border border-[0.25px] border-lineGray w-1/4"></div>
           <h2 className="text-customGray dark:text-white text-[25px] font-beVietnam font-light">
@@ -360,7 +365,6 @@ export default function Index({ isOpen }: { isOpen: boolean }) {
                 cssMode={true}
                 slidesPerView={1}
                 modules={[Navigation, Scrollbar, A11y, Pagination]}
-                onSlideChange={(swiperRef) => handleSlideChange(swiperRef)}
                 onInit={(swiper: any) => {
                     swiper.params.navigation.prevEl = prevRef.current;
                     swiper.params.navigation.nextEl = nextRef.current;
@@ -369,51 +373,101 @@ export default function Index({ isOpen }: { isOpen: boolean }) {
                 }}
                 lazyPreloadPrevNext={2}
             > */}
-        {/* <Swiper
-          effect={'coverflow'}
-          grabCursor={true}
-          centeredSlides={true}
-          slidesPerView={'auto'}
-          coverflowEffect={{
-            rotate: 50,
-            stretch: 0,
-            depth: 100,
-            modifier: 1,
-            slideShadows: true,
+          <Swiper
+            // effect="coverflow"
+            // grabCursor={true}
+            // centeredSlides={true}
+            slidesPerView={'auto'}
+            // coverflowEffect={{
+            //   rotate: 50,
+            //   stretch: 0,
+            //   depth: 100,
+            //   modifier: 1,
+            //   slideShadows: true,
+            // }}
+          modules={[Navigation, Scrollbar, A11y, Pagination]}
+          onInit={(swiper: any) => {
+            swiper.params.navigation.prevEl = prevRef.current;
+            swiper.params.navigation.nextEl = nextRef.current;
+            swiper.navigation.init();
+            swiper.navigation.update();
           }}
-          pagination={true}
-          modules={[EffectCoverflow, Pagination]}
-          className="mySwiper"
-        > */}
-        <Swiper
-                className={carouselItems.length > 1 ? "cursor-pointer" : ""}
-                cssMode={true}
-                slidesPerView={1}
-                modules={[Navigation, Scrollbar, A11y, Pagination]}
-                onInit={(swiper: any) => {
-                    swiper.params.navigation.prevEl = prevRef.current;
-                    swiper.params.navigation.nextEl = nextRef.current;
-                    swiper.navigation.init();
-                    swiper.navigation.update();
-                }}
-                lazyPreloadPrevNext={2}
-            >
-          <button
-            className={`prev-button z-50 ${currentSlide == 0 ? "swiper-button-disabled" : ""
-              }`}
-            ref={prevRef}
-          ></button>
-          <button
-            className={`next-button z-50 ${currentSlide === carouselItems.length - 1 ? "swiper-button-disabled" : ""
-              }`}
-            ref={nextRef}
-          ></button>
-          {carouselItems.map((item, index) => (
-            <SwiperSlide key={index}>
-              <CarouselItemWork {...item} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+            pagination={true}
+            className="flex justify-center items-center"
+            lazyPreloadPrevNext={2}
+          >
+            <button
+              className={`prev-button z-50 ${currentSlide == 0 ? "swiper-button-disabled" : ""
+                }`}
+              ref={prevRef}
+            ></button>
+            <button
+              className={`next-button z-50 ${currentSlide === carouselItems.length - 1 ? "swiper-button-disabled" : ""
+                }`}
+              ref={nextRef}
+            ></button>
+            {carouselItems.map((item, index) => (
+              <SwiperSlide key={index}>
+                {/* <CarouselItemWork {...item} /> */}
+                <div className="w-full flex items-center justify-center px-8">
+                  <div
+                    className="max-w-[75vw] min-h[250px] z-10 relative flex flex-col items-center justify-center py-4 pb-8 px-8 mt-8
+          rounded-[30px] border border-[0.25px] border-lineGray dark:border-0 font-beVietnam bg-cardGray dark:bg-[url('/our-work/latest-work-card-bg-dark.svg')]
+          bg-cover bg-center bg-blend-darken bg-blend-normal linear-gradient(to bottom, #272B34 0%, #1F2325 46%, #20222D 100%)"
+                  >
+                    <img
+                      src="/our-work/latest-works/latest-work-1.png"
+                      alt="latest work 1"
+                      height={200}
+                      width={300}
+                      className="rounded-[27px]"
+                    />
+                    <div className="flex gap-x-3 mt-5 text-[20px] text-textGray5">
+                      <div className="flex justify-center items-center rounded-[18px] px-2 py-1 gap-x-3 bg-react-gradient shadow-glow-weak">
+                        <img
+                          src="/services/icons/swift-icon.svg"
+                          alt="swift-icon"
+                          className="rounded-[10px]"
+                          height={30}
+                          width={30}
+                        />
+                        <p className="pr-2 pb-1">Swift</p>
+                      </div>
+                      <img
+                        src={
+                          resolvedTheme === "dark"
+                            ? "/our-work/plus-white.svg"
+                            : "/our-work/plus-black.svg"
+                        }
+                      />
+                      <div className="flex justify-center items-center rounded-[18px] px-2 py-1 gap-x-3 bg-react-gradient shadow-glow-weak">
+                        <img
+                          src="/services/icons/nextjs-icon.svg"
+                          alt="nextjs-icon"
+                          height={30}
+                          width={30}
+                        />
+                        <p className="pr-2 pb-1">Nextjs</p>
+                      </div>
+                    </div>
+                    <div className="flex flex-col items-start mt-8">
+                      <h3 className="text-black dark:text-white text-[20px] font-semibold">
+                        Custom website development
+                      </h3>
+                      <p className="text-[16px] text-paragraphGray dark:text-textGray4 my-4 mt-4">
+                        Fully integrated website solution. We also implemented the invetory
+                        system with updated stock overview.{" "}
+                      </p>
+                      <button className="flex text-darkBlue2 text-[20px] gap-x-3 px-4 py-2 mt-[20px] font-light bg-white rounded-[27px] shadow-buttonShadow justify-center items-center cursor-pointer">
+                        <p>See the work</p>
+                        <img src="/our-work/arrow-icon.svg" alt="arrow" className="mt-1" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
       </section>
       {/* <OurWork /> */}
       {/* <section className="flex flex-col justify-center items-center mt-10">
