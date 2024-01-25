@@ -1,5 +1,5 @@
 import React from 'react'
-import { CarouselItemTeamProps } from '@/pages/types'
+import { CarouselItemTeamProps } from '@/types'
 
 export default function CarouselItemTeam({ imgPath, position, name, description, link }: CarouselItemTeamProps) {
     return (

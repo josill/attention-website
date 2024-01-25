@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import CarouselItemWork from '@/components/CarouselItemWork';
 import { Swiper as SwiperType } from "swiper/types";
-import { CarouselItemWorkProps, CarouselItemTeamProps } from '@/pages/types';
+import { CarouselItemWorkProps, CarouselItemTeamProps } from '@/types';
 
 import "swiper/css";
 import "swiper/css/navigation";
