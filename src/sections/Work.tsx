@@ -100,7 +100,7 @@ export default function Work() {
                     Here are our latest works
                 </h3>
                 <p className="text-[16px] text-paragraphGray dark:text-textGray4 my-4 mt-4">
-                    Lorem ipsum dolor sit amet consectetur. Ipsum vitae id sed dignissim tincidunt. Vehicula tortor sit condimentum eu nunc mauris pellentesque massa.
+                    We have created and helped create a lot of different projects, some for our personal use, some for our clients and some for learning purposes. 
                 </p>
             </div>
             <div className='max-w-[100vw]'>

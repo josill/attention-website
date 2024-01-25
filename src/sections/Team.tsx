@@ -5,38 +5,17 @@ export default function Team() {
   const carouselItems = [
     {
       imgPath: '/our-team/worker-sample.png',
-      position: 'Backend developer',
-      name: 'Jane Belway',
-      description: 'Fully integrated website solution. We also implemented the invetory system with updated stock overview.',
-      link: '#'
+      position: 'Fullstack Developer',
+      name: 'Jonathan Sillak',
+      description: 'Co-founder of Attention. Changing the world line by line.',
+      link: 'https://ee.linkedin.com/in/jonathan-sillak-375a59279'
     },
     {
       imgPath: '/our-team/worker-sample.png',
-      position: 'Backend developer',
-      name: 'Jane Belway',
-      description: 'Fully integrated website solution. We also implemented the invetory system with updated stock overview.',
-      link: '#'
-    },
-    {
-      imgPath: '/our-team/worker-sample.png',
-      position: 'Backend developer',
-      name: 'Jane Belway',
-      description: 'Fully integrated website solution. We also implemented the invetory system with updated stock overview.',
-      link: '#'
-    },
-    {
-      imgPath: '/our-team/worker-sample.png',
-      position: 'Backend developer',
-      name: 'Jane Belway',
-      description: 'Fully integrated website solution. We also implemented the invetory system with updated stock overview.',
-      link: '#'
-    },
-    {
-      imgPath: '/our-team/worker-sample.png',
-      position: 'Backend developer',
-      name: 'Jane Belway',
-      description: 'Fully integrated website solution. We also implemented the invetory system with updated stock overview.',
-      link: '#'
+      position: 'Fullstack Developer',
+      name: 'Martin Metsküla',
+      description: 'Co-founder of Attention. Use the power of code to change the world.',
+      link: 'https://ee.linkedin.com/in/martin-metskula'
     },
   ]
   return (
