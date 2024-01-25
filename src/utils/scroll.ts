@@ -5,12 +5,6 @@ export default function handleClick(e: React.MouseEvent<HTMLParagraphElement, Mo
     const clickedElement = e.target as HTMLParagraphElement;
     const clickedElementText = clickedElement.innerHTML.toLowerCase();
 
-    const scrollOptions = {
-        behavior: "smooth",
-        block: "start",
-        inline: "start",
-    } as ScrollIntoViewOptions;
-
     const scrollToElement = (elementId: string) => {
         const element = document.getElementById(elementId);
         if (element) {

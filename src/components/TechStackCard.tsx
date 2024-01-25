@@ -23,7 +23,7 @@ export default function TechStackCard({ content }: TechStackCardProps) {
         Stacks we use
       </h3>
       <p className="text-[16px] text-textGray dark:text-textGray3 my-4 mt-4">
-        We use the latest technologies to build your product and we don't overcomplicate our tech stack.
+      We use the latest technologies to build your product and we don&apos;t overcomplicate our tech stack.
       </p>
       <div className="grid grid-cols-3 gap-4 items-center justify-center w-full">
         {content.map((icon, index) => {

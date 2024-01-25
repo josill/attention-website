@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import ThemeSwitch from './ThemeSwitch';
-import handleClick from '@/utils/ScrollHandler';
+import handleClick from "@/utils/scroll";
 
 export default function Sidebar({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: React.Dispatch<React.SetStateAction<boolean>>}) {
   const sidebarRef = useRef<HTMLDivElement>(null);

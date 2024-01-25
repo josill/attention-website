@@ -14,6 +14,7 @@ interface WhyUsProps {
 
 export default function WhyUs({ content }: WhyUsProps) {
   const { resolvedTheme } = useTheme();
+  console.log(resolvedTheme);
 
   return (
     <section
