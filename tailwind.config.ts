@@ -63,7 +63,6 @@ const config: Config = {
         yellow: "#F0DB4F",
         darkBrown: "#7E7168",
         darkBrow2: "#74573A"
-
       },
       boxShadow: {
         small: '5px 5px 10px #888888',

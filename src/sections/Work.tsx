@@ -9,13 +9,9 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
+import SwiperComponent from '@/components/SwiperComponent';
 
 export default function Work() {
-    const { resolvedTheme, setTheme } = useTheme();
-    const [currentSlide, setCurrentSlide] = useState(0);
-    const prevRef = useRef<HTMLButtonElement | null>(null);
-    const nextRef = useRef<HTMLButtonElement | null>(null);
-
     const carouselItems = [
         {
             imgPath: '/our-work/latest-works/latest-work-1.png',
@@ -23,10 +19,6 @@ export default function Work() {
                 {
                     iconPath: '/services/icons/swift-icon.svg',
                     techName: 'Swift'
-                },
-                {
-                    iconPath: '/services/icons/nextjs-icon.svg',
-                    techName: 'Nextjs'
                 }
             ],
             title: 'Custom website development',
@@ -59,6 +51,10 @@ export default function Work() {
                 {
                     iconPath: '/services/icons/nextjs-icon.svg',
                     techName: 'Nextjs'
+                },
+                {
+                    iconPath: '/services/icons/nextjs-icon.svg',
+                    techName: 'Nextjs'
                 }
             ],
             title: 'Custom website development',
@@ -73,6 +69,14 @@ export default function Work() {
                     techName: 'Swift'
                 },
                 {
+                    iconPath: '/services/icons/nextjs-icon.svg',
+                    techName: 'Nextjs'
+                },
+                {
+                    iconPath: '/services/icons/nextjs-icon.svg',
+                    techName: 'Nextjs'
+                },
+                                {
                     iconPath: '/services/icons/nextjs-icon.svg',
                     techName: 'Nextjs'
                 }
@@ -82,11 +86,6 @@ export default function Work() {
             link: '#'
         },
     ]
-
-    const handleSlideChange = (swiper: SwiperType) => {
-        setCurrentSlide(() => swiper.activeIndex);
-    };
-
     return (
         <section className="flex flex-col justify-center items-center mt-10" id='our-work'>
             <div className="flex flex-row justify-between items-center w-[100vw]">
@@ -96,7 +95,7 @@ export default function Work() {
                 </h2>
                 <div className="border border-[0.25px] border-lineGray w-1/4"></div>
             </div>
-            <div className="flex flex-col items-start mt-10 w-1/4 pl-2">
+            <div className="flex flex-col items-start mt-10 w-1/4 mr-4">
                 <h3 className="text-black dark:text-white text-[20px] font-semibold">
                     Here are our latest works
                 </h3>
@@ -104,46 +103,7 @@ export default function Work() {
                     Lorem ipsum dolor sit amet consectetur. Ipsum vitae id sed dignissim tincidunt. Vehicula tortor sit condimentum eu nunc mauris pellentesque massa.
                 </p>
             </div>
-            <Swiper
-                slidesPerView={'auto'}
-                modules={[Navigation, Scrollbar, A11y, Pagination]}
-                onInit={(swiper: any) => {
-                    swiper.params.navigation.prevEl = prevRef.current;
-                    swiper.params.navigation.nextEl = nextRef.current;
-                    swiper.navigation.init();
-                    swiper.navigation.update();
-                }}
-                pagination={{
-                    enabled: true,
-                    clickable: true,
-                    renderBullet: function (index, className) {
-                        return '<span class="' + className + '"></span>';
-                    }
-                }}
-                onSlideChange={(swiperRef) => handleSlideChange(swiperRef)}
-                autoplay={{
-                    delay: 8000,
-                    disableOnInteraction: false,
-                }}
-                loop={true}
-                lazyPreloadPrevNext={2}
-            >
-                <button
-                    className={`prev-button z-50 ${currentSlide == 0 ? "swiper-button-disabled" : ""
-                        }`}
-                    ref={prevRef}
-                ></button>
-                <button
-                    className={`next-button z-50 ${currentSlide === carouselItems.length - 1 ? "swiper-button-disabled" : ""
-                        }`}
-                    ref={nextRef}
-                ></button>
-                {carouselItems.map((item, index) => (
-                    <SwiperSlide key={index}>
-                        <CarouselItemWork {...item} />
-                    </SwiperSlide>
-                ))}
-            </Swiper>
+            <SwiperComponent carouselItems={carouselItems} />
         </section>
     )
 }

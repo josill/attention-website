@@ -26,39 +26,37 @@ export default function CarouselItemWork({ imgPath, techStacks, title, descripti
                     bg-cover bg-center bg-blend-darken bg-blend-normal linear-gradient(to bottom, #272B34 0%, #1F2325 46%, #20222D 100%)"
         >
           <img
-            src="/our-work/latest-works/latest-work-1.png"
-            alt="latest work 1"
+            src={imgPath}
+            alt={title}
             height={200}
             width={300}
             className="rounded-[27px]"
           />
-          <div className="flex gap-x-3 mt-5 text-[20px] text-textGray5">
-            <div className="flex justify-center items-center rounded-[18px] px-2 py-1 gap-x-3 bg-react-gradient shadow-glow-weak">
-              <img
-                src="/services/icons/swift-icon.svg"
-                alt="swift-icon"
-                className="rounded-[10px]"
-                height={30}
-                width={30}
-              />
-              <p className="pr-2 pb-1">Swift</p>
-            </div>
-            <img
-              src={
-                resolvedTheme === "dark"
-                  ? "/our-work/plus-white.svg"
-                  : "/our-work/plus-black.svg"
-              }
-            />
-            <div className="flex justify-center items-center rounded-[18px] px-2 py-1 gap-x-3 bg-react-gradient shadow-glow-weak">
-              <img
-                src="/services/icons/nextjs-icon.svg"
-                alt="nextjs-icon"
-                height={30}
-                width={30}
-              />
-              <p className="pr-2 pb-1">Nextjs</p>
-            </div>
+          <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 mt-5 text-[20px] text-textGray5">
+            {techStacks.map((techStack, index) => (
+              <>
+                <div className="flex justify-center items-center rounded-[18px] px-2 py-1 gap-x-3 bg-react-gradient shadow-glow-weak">
+                  <img
+                    src={techStack.iconPath}
+                    alt={techStack.techName}
+                    className="rounded-[10px]"
+                    height={30}
+                    width={30}
+                  />
+                  <p className="pr-2 pb-1">{techStack.techName}</p>
+                </div>
+                {index % 2 === 0 && index !== techStacks.length - 1 && (
+                  <img
+                    src={
+                      resolvedTheme === "dark"
+                        ? "/our-work/plus-white.svg"
+                        : "/our-work/plus-black.svg"
+                    }
+                  />
+                )}
+              </>
+            )
+            )}
           </div>
           <div className="flex flex-col items-start mt-8 px-4">
             <h3 className="text-black dark:text-white text-[20px] font-semibold">
