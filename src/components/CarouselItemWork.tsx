@@ -34,7 +34,7 @@ export default function CarouselItemWork({ imgPath, techStacks, title, descripti
           />
           <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 mt-5 text-[20px] text-textGray5">
             {techStacks.map((techStack, index) => (
-              <div key={index}>
+              <div className="flex flex-row items-center justify-center gap-x-3" key={index}>
                 <div className="flex justify-center items-center rounded-[18px] px-2 py-1 gap-x-3 bg-react-gradient shadow-glow-weak">
                   <img
                     src={techStack.iconPath}
