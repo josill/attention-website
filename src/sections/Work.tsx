@@ -21,9 +21,9 @@ export default function Work() {
                     techName: 'Swift'
                 }
             ],
-            title: 'Custom website development',
-            description: 'Fully integrated website solution. We also implemented the invetory system with updated stock overview.',
-            link: '#'
+            title: 'IOS Navigator App',
+            description: 'App like Endomondo, Strava and Runtastic. It is a fitness app that tracks your running, cycling and walking. Built using swift to introduce ourselves to native app development.',
+            link: 'https://github.com/josill/Navigator'
         },
         {
             imgPath: '/our-work/latest-works/latest-work-1.png',
