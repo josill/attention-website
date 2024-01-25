@@ -1,9 +1,12 @@
 import React, { useState } from "react";
+import { Spinner } from "@nextui-org/react";
+import { set } from "animejs";
 
 export default function Contact() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const emailRegex = /^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$/;
 
@@ -12,15 +15,18 @@ export default function Contact() {
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    setIsLoading(true);
     e.preventDefault();
 
     if (!email || !message) {
       alert("Please fill in your email and message before submitting.");
+      setIsLoading(false);
       return;
     }
 
     if (!isValidEmail(email)) {
       alert("Please enter a valid email address.");
+      setIsLoading(false);
       return;
     }
 
@@ -42,6 +48,8 @@ export default function Contact() {
       }
     } catch (error) {
       console.error("Error submitting contact form:", error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -75,9 +83,13 @@ export default function Contact() {
           />
           <button
             type="submit"
-            className="rounded-[16px] bg-darkBlue4 border-2 border-darkBlue4 w-full min-h-[50px] text-[20px] text-white"
+            className="flex items-center justify-center rounded-[16px] bg-darkBlue4 border-2 border-darkBlue4 w-full min-h-[50px] text-[20px] text-white"
           >
-            Send
+            {isLoading ? (
+              <Spinner color="white" labelColor="foreground"/>
+            ) : (
+              <p>Send</p>
+            )}
           </button>
         </form>
       </div>

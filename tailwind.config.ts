@@ -83,6 +83,10 @@ const config: Config = {
         DEFAULT: "#FFFFFF",
         foreground: "#FFFFFF",
       },
+      default: {
+        DEFAULT: "#000000",
+        foreground: "#000000",
+      },
     }),
   ],
 };
