@@ -48,7 +48,9 @@ export default function Team() {
         </h2>
         <div className="border border-[0.25px] border-lineGray w-1/4"></div>
       </div>
-      <SwiperComponent carouselItems={carouselItems} />
-    </section>  
-    )
+      <div className='max-w-[100vw]'>
+        <SwiperComponent carouselItems={carouselItems} />
+      </div>
+    </section>
+  )
 }

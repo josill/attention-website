@@ -87,7 +87,7 @@ export default function Work() {
         },
     ]
     return (
-        <section className="flex flex-col justify-center items-center mt-10 w-[100vw]" id='our-work'>
+        <section className="flex flex-col justify-center items-center mt-10" id='our-work'>
             <div className="flex flex-row justify-between items-center w-[100vw]">
                 <div className="border border-[0.25px] border-lineGray w-1/4"></div>
                 <h2 className="text-customGray dark:text-white text-[25px] font-beVietnam font-light">
@@ -95,7 +95,7 @@ export default function Work() {
                 </h2>
                 <div className="border border-[0.25px] border-lineGray w-1/4"></div>
             </div>
-            <div className="flex flex-col items-start mt-10 px-8">
+            <div className="flex flex-col items-start mt-10 px-8 w-[100vw]">
                 <h3 className="text-black dark:text-white text-[20px] font-semibold">
                     Here are our latest works
                 </h3>
@@ -103,7 +103,9 @@ export default function Work() {
                     Lorem ipsum dolor sit amet consectetur. Ipsum vitae id sed dignissim tincidunt. Vehicula tortor sit condimentum eu nunc mauris pellentesque massa.
                 </p>
             </div>
-            <SwiperComponent carouselItems={carouselItems} />
+            <div className='max-w-[100vw]'>
+                <SwiperComponent carouselItems={carouselItems} />
+            </div>
         </section>
     )
 }
