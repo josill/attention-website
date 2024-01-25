@@ -344,15 +344,15 @@ export default function Index({ isOpen }: { isOpen: boolean }) {
       </div>
       </section> */}
       <Services />
-      <section className="flex flex-col justify-center items-center mt-10" id='our-work'>
-        <div className="flex flex-row justify-between items-center w-[100vw]">
+      {/* <section className="flex flex-col justify-center items-center mt-10" id='our-work'>
+        <div className="flex flex-row justify-between items-center w-full">
           <div className="border border-[0.25px] border-lineGray w-1/4"></div>
           <h2 className="text-customGray dark:text-white text-[25px] font-beVietnam font-light">
             Our work
           </h2>
           <div className="border border-[0.25px] border-lineGray w-1/4"></div>
         </div>
-        <div className="flex flex-col items-start px-8 mt-10">
+        <div className="flex flex-col items-start mt-10 w-1/2 pl-2">
           <h3 className="text-black dark:text-white text-[20px] font-semibold">
             Here are our latest works
           </h3>
@@ -360,31 +360,8 @@ export default function Index({ isOpen }: { isOpen: boolean }) {
             Lorem ipsum dolor sit amet consectetur. Ipsum vitae id sed dignissim tincidunt. Vehicula tortor sit condimentum eu nunc mauris pellentesque massa.
           </p>
         </div>
-        {/* <Swiper
-                className={carouselItems.length > 1 ? "cursor-pointer" : ""}
-                cssMode={true}
-                slidesPerView={1}
-                modules={[Navigation, Scrollbar, A11y, Pagination]}
-                onInit={(swiper: any) => {
-                    swiper.params.navigation.prevEl = prevRef.current;
-                    swiper.params.navigation.nextEl = nextRef.current;
-                    swiper.navigation.init();
-                    swiper.navigation.update();
-                }}
-                lazyPreloadPrevNext={2}
-            > */}
           <Swiper
-            // effect="coverflow"
-            // grabCursor={true}
-            // centeredSlides={true}
             slidesPerView={'auto'}
-            // coverflowEffect={{
-            //   rotate: 50,
-            //   stretch: 0,
-            //   depth: 100,
-            //   modifier: 1,
-            //   slideShadows: true,
-            // }}
           modules={[Navigation, Scrollbar, A11y, Pagination]}
           onInit={(swiper: any) => {
             swiper.params.navigation.prevEl = prevRef.current;
@@ -408,12 +385,11 @@ export default function Index({ isOpen }: { isOpen: boolean }) {
             ></button>
             {carouselItems.map((item, index) => (
               <SwiperSlide key={index}>
-                {/* <CarouselItemWork {...item} /> */}
                 <div className="w-full flex items-center justify-center px-8">
                   <div
-                    className="max-w-[75vw] min-h[250px] z-10 relative flex flex-col items-center justify-center py-4 pb-8 px-8 mt-8
-          rounded-[30px] border border-[0.25px] border-lineGray dark:border-0 font-beVietnam bg-cardGray dark:bg-[url('/our-work/latest-work-card-bg-dark.svg')]
-          bg-cover bg-center bg-blend-darken bg-blend-normal linear-gradient(to bottom, #272B34 0%, #1F2325 46%, #20222D 100%)"
+                    className="max-w-[80vw] min-h[250px] z-10 relative flex flex-col items-center justify-center py-4 pb-8 px-4 mt-8
+                    rounded-[30px] border border-[0.25px] border-lineGray dark:border-0 font-beVietnam bg-cardGray dark:bg-[url('/our-work/latest-work-card-bg-dark.svg')]
+                    bg-cover bg-center bg-blend-darken bg-blend-normal linear-gradient(to bottom, #272B34 0%, #1F2325 46%, #20222D 100%)"
                   >
                     <img
                       src="/our-work/latest-works/latest-work-1.png"
@@ -450,7 +426,7 @@ export default function Index({ isOpen }: { isOpen: boolean }) {
                         <p className="pr-2 pb-1">Nextjs</p>
                       </div>
                     </div>
-                    <div className="flex flex-col items-start mt-8">
+                    <div className="flex flex-col items-start mt-8 px-4">
                       <h3 className="text-black dark:text-white text-[20px] font-semibold">
                         Custom website development
                       </h3>
@@ -468,8 +444,8 @@ export default function Index({ isOpen }: { isOpen: boolean }) {
               </SwiperSlide>
             ))}
           </Swiper>
-      </section>
-      {/* <OurWork /> */}
+      </section> */}
+      <OurWork />
       {/* <section className="flex flex-col justify-center items-center mt-10">
         <div className="flex flex-row justify-between items-center w-[100vw]">
           <div className="border border-[0.25px] border-lineGray w-1/4"></div>
