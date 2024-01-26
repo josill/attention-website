@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-const {nextui} = require("@nextui-org/react");
+const { nextui } = require("@nextui-org/react");
 
 const config: Config = {
   darkMode: "class",
@@ -11,11 +11,12 @@ const config: Config = {
   ],
   theme: {
     screens: {
-      sm: "1250px",
+      sm: "768px",
+      md: "1250px",
     },
     fontFamily: {
-      spotnik: ['Spotnik', 'sans-serif'],
-      beVietnam: ['Be Vietnam', 'sans-serif'],
+      spotnik: ["Spotnik", "sans-serif"],
+      beVietnam: ["Be Vietnam", "sans-serif"],
     },
     extend: {
       backgroundImage: {
@@ -68,14 +69,15 @@ const config: Config = {
         purple: "#240F43",
         yellow: "#F0DB4F",
         darkBrown: "#7E7168",
-        darkBrow2: "#74573A"
+        darkBrow2: "#74573A",
       },
       boxShadow: {
-        smallDark: '3px 3px 6px #888888',
-        smallLight: '5px 5px 10px #888888',
-        glow: '0px -0.111px 1.909px 0px rgba(78, 78, 78, 0.07), 0px -0.266px 4.589px 0px rgba(78, 78, 78, 0.09), 0px -0.501px 8.64px 0px rgba(78, 78, 78, 0.10), 0px -0.893px 15.412px 0px rgba(78, 78, 78, 0.12), 0px -1.671px 28.827px 0px rgba(78, 78, 78, 0.14), 0px -4px 69px 0px rgba(78, 78, 78, 0.20)',
-        glowWeak: '0px -0.111px 1.909px 0px rgba(78, 78, 78, 0.07), 0px -0.266px 4.589px 0px rgba(78, 78, 78, 0.09), 0px -0.501px 8.64px 0px rgba(78, 78, 78, 0.10), 0px -0.893px 15.412px 0px rgba(78, 78, 78, 0.12), 0px -1.671px 28.827px 0px rgba(78, 78, 78, 0.14), 0px -4px 69px 0px rgba(78, 78, 78, 0.20)',
-        buttonShadow: '3px 1px 10px 0px #DCDCDC'
+        smallDark: "3px 3px 6px #888888",
+        smallLight: "5px 5px 10px #888888",
+        glow: "0px -0.111px 1.909px 0px rgba(78, 78, 78, 0.07), 0px -0.266px 4.589px 0px rgba(78, 78, 78, 0.09), 0px -0.501px 8.64px 0px rgba(78, 78, 78, 0.10), 0px -0.893px 15.412px 0px rgba(78, 78, 78, 0.12), 0px -1.671px 28.827px 0px rgba(78, 78, 78, 0.14), 0px -4px 69px 0px rgba(78, 78, 78, 0.20)",
+        glowWeak:
+          "0px -0.111px 1.909px 0px rgba(78, 78, 78, 0.07), 0px -0.266px 4.589px 0px rgba(78, 78, 78, 0.09), 0px -0.501px 8.64px 0px rgba(78, 78, 78, 0.10), 0px -0.893px 15.412px 0px rgba(78, 78, 78, 0.12), 0px -1.671px 28.827px 0px rgba(78, 78, 78, 0.14), 0px -4px 69px 0px rgba(78, 78, 78, 0.20)",
+        buttonShadow: "3px 1px 10px 0px #DCDCDC",
       },
     },
   },

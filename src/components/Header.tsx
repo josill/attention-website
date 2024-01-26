@@ -5,23 +5,23 @@ import handleClick from "@/utils/scroll";
 function Header({
   sidebarOpen,
   setSidebarOpen,
-  deviceIsMobile,
+  deviceIsTablet,
 }: {
   sidebarOpen: boolean;
   setSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  deviceIsMobile: boolean;
+  deviceIsTablet: boolean;
 }) {
   return (
     <nav
       className={`z-20 fixed flex justify-center items-center bg-bgWhite dark:bg-black px-2 py-4 font-spotnik w-full h-[140px]`}
     >
       <div className="flex w-full justify-between items-center max-w-[1440px]">
-        <div className="flex flex-row gap-x-[20px] sm:gap-x-2 justify-center items-center">
-          <div className="border border-[0.25px] border-lineGray dark:border-customGray min-w-[30px] sm:max-w-[36px]"></div>
+        <div className="flex flex-row gap-x-[20px] md:gap-x-2 justify-center items-center">
+          <div className="border border-[0.25px] border-lineGray dark:border-customGray min-w-[30px] md:max-w-[36px]"></div>
           <h1
-            className={`text-4xl sm:text-3xl text-center text-black dark:text-headerWhite
+            className={`text-4xl md:text-3xl text-center text-black dark:text-headerWhite
           ${
-            !deviceIsMobile &&
+            !deviceIsTablet &&
             "border-[1px] border-lineGray dark:border-customGray rounded-[13px] p-3"
           }
         `}
@@ -29,7 +29,7 @@ function Header({
             Attention
           </h1>
         </div>
-        {deviceIsMobile ? (
+        {deviceIsTablet ? (
           <img
             src="/header/burger-menu.svg"
             alt="buger-menu"
@@ -38,7 +38,8 @@ function Header({
             id="burger-menu"
           />
         ) : (
-          <div className="flex w-full items-center justify-start"
+          <div
+            className="flex w-full items-center justify-start"
             onClick={(e) => handleClick(e)}
           >
             <div className="border border-[0.25px] border-lineGray dark:border-customGray min-w-[30px] flex-grow max-w-[100px] mx-2"></div>
@@ -65,12 +66,15 @@ function Header({
                   height={15}
                   width={15}
                   className="mt-[3px] group-hover:animate-bounce group-hover:fill-lightGray2 text-darkBlue4"
-                  />
+                />
               </div>
             </div>
             <div className="border border-[0.25px] border-lineGray dark:border-customGray min-w-[30px] flex-grow max-w-[240px] mx-2"></div>
-            <ThemeSwitch />
-            <div className="border border-[0.25px] border-lineGray dark:border-customGray min-w-[30px] sm:max-w-[36px]"></div>
+            <div className="relative">
+              <ThemeSwitch />
+              <div className="absolute top-[-40px] right-[40%] border border-[0.25px] border-lineGray dark:border-customGray w-[1px] min-h-[30px] flex-grow mx-2"></div>
+            </div>
+            <div className="border border-[0.25px] border-lineGray dark:border-customGray min-w-[30px] md:max-w-[36px]"></div>
           </div>
         )}
       </div>

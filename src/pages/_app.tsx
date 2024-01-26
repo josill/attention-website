@@ -10,10 +10,12 @@ import Footer from "@/components/Footer";
 export default function App({ Component, pageProps }: AppProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [isTablet, setIsTablet] = useState(false);
 
   useEffect(() => {
     const checkWindowSize = () => {
-      setIsMobile(window.innerWidth <= 1250);
+      setIsMobile(window.innerWidth <= 768);
+      setIsTablet(window.innerWidth <= 1250);
     };
 
     checkWindowSize();
@@ -27,7 +29,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <NextUIProvider>
       <ThemeProvider attribute="class">
-        <Header sidebarOpen={isOpen} setSidebarOpen={setIsOpen} deviceIsMobile={isMobile} />
+        <Header sidebarOpen={isOpen} setSidebarOpen={setIsOpen} deviceIsTablet={isTablet} />
         <Index sidebarOpen={isOpen} setSidebarOpen={setIsOpen} deviceIsMobile={isMobile} />
         {/* <Component {...pageProps} /> */}
         <Footer />

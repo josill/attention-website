@@ -1,10 +1,13 @@
-import SoftwareDevelopmentCard from '@/components/SoftwareDevelopmentCard';
-import ServiceMaintenanceCard from '@/components/ServiceMaintenanceCard';
-import CustomSolutionsCard from '@/components/CustomSolutionsCard';
-import React from 'react'
-import TechStackCard from '@/components/TechStackCard';
+import SoftwareDevelopmentCard from "@/components/SoftwareDevelopmentCard";
+import ServiceMaintenanceCard from "@/components/ServiceMaintenanceCard";
+import CustomSolutionsCard from "@/components/CustomSolutionsCard";
+import React from "react";
+import TechStackCard from "@/components/TechStackCard";
+import { useTheme } from "next-themes"
 
-export default function Services() {
+export default function Services({ deviceIsMobile }: { deviceIsMobile: boolean }) {
+  const { theme } = useTheme();
+
   const softwareDevelopmentCardContent = [
     {
       iconPath: "/services/e-commerce.svg",
@@ -80,18 +83,51 @@ export default function Services() {
   ];
 
   return (
-    <section className="flex flex-col justify-center items-center" id='services'>
-    <div className="flex flex-row justify-between items-center w-[100vw]">
-      <div className="border border-[0.25px] border-lineGray w-1/4"></div>
-      <h2 className="text-customGray dark:text-white text-[25px] font-beVietnam font-light">
+    <section
+    className="flex flex-col justify-center items-center sm:px-8"
+    id="services"
+  >
+    <div className="flex flex-row justify-between items-center w-full">
+      <div className="flex flex-grow items-center gap-x-2">
+        {!deviceIsMobile && (
+          <img
+          src={
+            theme === "dark"
+              ? "services/rectangle-dark.svg"
+              : "services/rectangle-light.svg"
+          }
+          alt="Rectangle"
+          width={10}
+          height={10}
+        />
+        )}
+        <div className="border border-[0.25px] h-[1px] border-lineGray dark:border-darkGray3 w-full"></div>
+      </div>
+      <h2 className="text-customGray dark:text-white text-[25px] font-beVietnam font-light px-12 sm:px-16 pb-2">
         Services
       </h2>
-      <div className="border border-[0.25px] border-lineGray w-1/4"></div>
+      <div className="flex flex-grow items-center justify-end gap-x-2">
+        <div className="border border-[0.25px] h-[1px] border-lineGray dark:border-darkGray3 w-full"></div>
+        {!deviceIsMobile && (
+          <img
+          src={
+            theme === "dark"
+              ? "services/rectangle-dark.svg"
+              : "services/rectangle-light.svg"
+          }
+          alt="Rectangle"
+          width={10}
+          height={10}
+        />
+        )}
+      </div>
     </div>
-    <SoftwareDevelopmentCard content={softwareDevelopmentCardContent} />
-    <ServiceMaintenanceCard />
-    <CustomSolutionsCard />
-    <TechStackCard content={techStacksContent} />
+    <div className="flex flex-col sm:grid sm:grid-cols-2 px-8 gap-x-8 mt-[-0.5em] mx-1 border-x-[1px] border-lineGray dark:border-darkGray3">
+      <SoftwareDevelopmentCard content={softwareDevelopmentCardContent} />
+      <ServiceMaintenanceCard />
+      <CustomSolutionsCard />
+      <TechStackCard content={techStacksContent} />
+    </div>
   </section>
-  )
+  );
 }

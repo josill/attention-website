@@ -143,7 +143,7 @@ export default function Hero() {
         </h3>
         <h1 className="text-[30px] text-lightGray text-center px-4">
           Innovative{" "}
-          <span className="text-lightBlue dark:text-darkBlue">
+          <span className="text-darkBlue2 dark:text-lightBlue">
             IT Solutions
           </span>{" "}
           for a connected world
