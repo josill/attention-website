@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { Spinner } from "@nextui-org/react";
+import { set } from "animejs";
 
 export default function Contact() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+
+  const [emailError, setEmailError] = useState(false);
+  const [messageError, setMessageError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   const emailRegex = /^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$/;
@@ -15,16 +19,16 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     setIsLoading(true);
+    setEmailError(false);
+    setMessageError(false);
     e.preventDefault();
 
-    if (!email || !message) {
-      alert("Please fill in your email and message before submitting.");
-      setIsLoading(false);
-      return;
-    }
+    console.log("Submitting contact form...");
+    console.log(!email, !message, !isValidEmail(email));
 
-    if (!isValidEmail(email)) {
-      alert("Please enter a valid email address.");
+    if (!email || !message || !isValidEmail(email)) {
+      setEmailError(!email || !isValidEmail(email));
+      setMessageError(!message);
       setIsLoading(false);
       return;
     }
@@ -71,14 +75,18 @@ export default function Contact() {
           <input
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="Email*"
-            className="w-full min-h-[50px] rounded-[16px] border-2 border-darkBlue4 pl-4 dark:bg-customBlack4"
+            placeholder={emailError ? "*Please add your email" : "Email*"}
+            className={`w-full min-h-[50px] rounded-[16px] border-2 pl-4 dark:bg-customBlack4
+            ${emailError ? "text-red border-red": "border-darkBlue4"}
+            `}
           />
           <input
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            placeholder="Message*"
-            className="w-full text-start min-h-[200px] rounded-[16px] border-2 border-darkBlue4 pl-4 dark:bg-customBlack4 pb-[140px]"
+            placeholder={messageError ? "*Please add a message" : "Message*"}
+            className={`w-full text-start min-h-[200px] rounded-[16px] border-2 pl-4 dark:bg-customBlack4 pb-[140px]
+            ${messageError ? "text-red border-red": "border-darkBlue4"}
+            `}
           />
           <button
             type="submit"
