@@ -20,8 +20,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-export default function Index({ sidebarOpen, setSidebarOpen }: { sidebarOpen: boolean, setSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>}) {
-  const [isMobile, setIsMobile] = useState(false);
+export default function Index({ sidebarOpen, setSidebarOpen, deviceIsMobile }: { sidebarOpen: boolean, setSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>, deviceIsMobile: boolean }) {
   const { resolvedTheme, setTheme } = useTheme();
 
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -186,40 +185,27 @@ export default function Index({ sidebarOpen, setSidebarOpen }: { sidebarOpen: bo
     }
   ]
 
-  useEffect(() => {
-    const checkWindowSize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
-    checkWindowSize();
-
-    window.addEventListener("resize", checkWindowSize);
-
-    return () => {
-      window.removeEventListener("resize", checkWindowSize);
-    };
-  }, []);
   return (
     <div className="flex flex-col items-center justify-center overflow-hidden font-beVietnam bg-bgWhite dark:bg-black">
-      {isMobile && sidebarOpen && <Sidebar isOpen={sidebarOpen} setIsOpen={setSidebarOpen} />}
-      {/* <section className="flex flex-col mt-[72px]">
-      <div
-        className="flex flex-col justify-center items-center"
-        id="title-block"
-      >
-        <h3 className="text-[20px] text-darkGray mt-8 mb-4">
-          Empowering tomorrow
-        </h3>
-        <h1 className="text-[30px] text-lightGray text-center px-4">
-          Innovative{" "}
-          <span className="text-lightBlue dark:text-darkBlue">
-            IT Solutions
-          </span>{" "}
-          for a connected world
-        </h1>
-      </div>
-      <canvas id="bg" />
-    </section> */}
+      {deviceIsMobile && sidebarOpen && <Sidebar isOpen={sidebarOpen} setIsOpen={setSidebarOpen} />}
+  {/* <section className="flex flex-col mt-[140px]" id="hero">
+        <div
+          className="flex flex-col justify-center items-center"
+          id="title-block"
+        >
+          <h3 className="text-[20px] text-darkGray mt-8 mb-4">
+            Empowering tomorrow
+          </h3>
+          <h1 className="text-[30px] text-lightGray text-center px-4">
+            Innovative{" "}
+            <span className="text-lightBlue dark:text-darkBlue">
+              IT Solutions
+            </span>{" "}
+            for a connected world
+          </h1>
+        </div>
+        <canvas id="bg" />
+      </section> */}
       <Hero />
       {/* <section className="flex flex-col justify-center items-center">
         <div className="flex flex-row justify-between items-center w-[100vw]">

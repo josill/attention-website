@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import * as THREE from "three";
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { vertexShaderGLSL, fragmentShaderGLSL } from "../shaders";
 import { useTheme } from "next-themes";
 
@@ -15,7 +15,9 @@ export default function Hero() {
   useEffect(() => {
     const scene = new THREE.Scene();
     const loader = new THREE.TextureLoader();
-    scene.background = loader.load(theme === "light" ? "landing/grid-light.png" : "landing/grid-dark.png");
+    scene.background = loader.load(
+      theme === "light" ? "landing/grid-light.png" : "landing/grid-dark.png"
+    );
 
     const width = window.innerWidth;
     const header = document.querySelector("nav") || { clientHeight: 0 };
@@ -131,7 +133,7 @@ export default function Hero() {
   }, [theme, windowDimensions]);
 
   return (
-    <section className="flex flex-col mt-[72px]" id="hero">
+    <section className="flex flex-col mt-[140px]" id="hero">
       <div
         className="flex flex-col justify-center items-center"
         id="title-block"

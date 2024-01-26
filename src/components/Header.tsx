@@ -1,23 +1,78 @@
 import React from "react";
-import { useState, useEffect } from "react";
 import ThemeSwitch from "./ThemeSwitch";
+import handleClick from "@/utils/scroll";
 
-function Header({ sidebarOpen, setSidebarOpen }: { sidebarOpen: boolean, setSidebarOpen: React.Dispatch<React.SetStateAction<boolean>> }) {
+function Header({
+  sidebarOpen,
+  setSidebarOpen,
+  deviceIsMobile,
+}: {
+  sidebarOpen: boolean;
+  setSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  deviceIsMobile: boolean;
+}) {
   return (
-    <nav className="z-20 fixed flex justify-between items-center bg-bgWhite dark:bg-black px-2 py-4 font-spotnik w-[100vw] h-[72px]">
-      <div className="flex flex-row gap-x-[20px] justify-center items-center">
-        <img src="/header/gray-line.svg" alt="gray-line" />
-        <h1 className="text-4xl text-center text-black dark:text-white">
-          Attention
-        </h1>
-      </div>
-      <div className="flex flex-row">
-        <img src="/header/burger-menu.svg" 
-        alt="buger-menu" 
-        className="pr-4" 
-        onClick={() => setSidebarOpen(!sidebarOpen)} 
-        id="burger-menu"
-        />
+    <nav
+      className={`z-20 fixed flex justify-center items-center bg-bgWhite dark:bg-black px-2 py-4 font-spotnik w-full h-[140px]`}
+    >
+      <div className="flex w-full justify-between items-center max-w-[1440px]">
+        <div className="flex flex-row gap-x-[20px] sm:gap-x-2 justify-center items-center">
+          <div className="border border-[0.25px] border-lineGray dark:border-customGray min-w-[30px] sm:max-w-[36px]"></div>
+          <h1
+            className={`text-4xl sm:text-3xl text-center text-black dark:text-headerWhite
+          ${
+            !deviceIsMobile &&
+            "border-[1px] border-lineGray dark:border-customGray rounded-[13px] p-3"
+          }
+        `}
+          >
+            Attention
+          </h1>
+        </div>
+        {deviceIsMobile ? (
+          <img
+            src="/header/burger-menu.svg"
+            alt="buger-menu"
+            className="pr-4"
+            onClick={() => setSidebarOpen(!sidebarOpen)}
+            id="burger-menu"
+          />
+        ) : (
+          <div className="flex w-full items-center justify-start"
+            onClick={(e) => handleClick(e)}
+          >
+            <div className="border border-[0.25px] border-lineGray dark:border-customGray min-w-[30px] flex-grow max-w-[100px] mx-2"></div>
+            <div className="min-w-1/2 flex flex-row gap-x-[20px] justify-center items-center border-[1px] border-lineGray dark:border-customGray rounded-[32px] py-2 px-2">
+              <h2 className="text-[20px] text-black dark:text-headerWhite hover:bg-darkBlue5 hover:text-lightGray2 hover:dark:bg-headerGray rounded-[23.5px] px-3 py-2 mb-1 cursor-pointer">
+                Services
+              </h2>
+              <h2 className="text-[20px] text-black dark:text-headerWhite hover:bg-darkBlue5 hover:text-lightGray2 hover:dark:bg-headerGray rounded-[23.5px] px-3 py-2 mb-1 cursor-pointer">
+                Our work
+              </h2>
+              <h2 className="text-[20px] text-black dark:text-headerWhite hover:bg-darkBlue5 hover:text-lightGray2 hover:dark:bg-headerGray rounded-[23.5px] px-3 py-2 mb-1 cursor-pointer">
+                The team
+              </h2>
+              <h2 className="text-[20px] text-black dark:text-headerWhite hover:bg-darkBlue5 hover:text-lightGray2 hover:dark:bg-headerGray rounded-[23.5px] px-3 py-2 mb-1 cursor-pointer">
+                Why us?
+              </h2>
+              <div className="group flex gap-x-3 items-center justify-center hover:bg-darkBlue5 hover:dark:bg-headerGray rounded-[23.5px] px-4 py-2 mb-1 cursor-pointer">
+                <h2 className="text-[20px] text-black dark:text-headerWhite group-hover:text-lightGray2">
+                  Contact us
+                </h2>
+                <img
+                  src="/why-us/mail-icon-dark.svg"
+                  alt="arrow"
+                  height={15}
+                  width={15}
+                  className="mt-[3px] group-hover:animate-bounce group-hover:fill-lightGray2 text-darkBlue4"
+                  />
+              </div>
+            </div>
+            <div className="border border-[0.25px] border-lineGray dark:border-customGray min-w-[30px] flex-grow max-w-[240px] mx-2"></div>
+            <ThemeSwitch />
+            <div className="border border-[0.25px] border-lineGray dark:border-customGray min-w-[30px] sm:max-w-[36px]"></div>
+          </div>
+        )}
       </div>
     </nav>
   );

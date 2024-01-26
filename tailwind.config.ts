@@ -10,6 +10,9 @@ const config: Config = {
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    screens: {
+      sm: "1250px",
+    },
     fontFamily: {
       spotnik: ['Spotnik', 'sans-serif'],
       beVietnam: ['Be Vietnam', 'sans-serif'],
@@ -23,8 +26,10 @@ const config: Config = {
       },
       colors: {
         bgWhite: "#FCFDFF",
+        headerWhite: "#F5F5F5",
         paragraphGray: "#999",
         customGray: "#474747",
+        headerGray: "#3F3F3F",
         lineGray: "#C1CCDC",
         gridLight: "#DFDFDF",
         gridDark: "#535353",
@@ -53,6 +58,7 @@ const config: Config = {
         darkBlue2: "#274D86",
         darkBlue3: "#0D2140",
         darkBlue4: "#274574",
+        darkBlue5: "#203D69",
         lightBlue: "#3184FF",
         lightBlue2: "#9CAFCD",
         textBlue: "#A0B3D0",

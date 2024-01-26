@@ -34,7 +34,7 @@ export default function Sidebar({ isOpen, setIsOpen }: { isOpen: boolean, setIsO
       <p>Services</p>
       <p>Our work</p>
       <p>The team</p>
-      <p>Why us</p>
+      <p>Why us?</p>
       <button className='p-2 px-4 rounded-[27px] bg-white text-darkBlue2 text-[18px] shadow-xl'>Contact us</button>
     </div>
   );
