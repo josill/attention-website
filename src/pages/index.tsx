@@ -196,7 +196,25 @@ export default function Index({
      {deviceIsMobile && sidebarOpen && (
         <Sidebar isOpen={sidebarOpen} setIsOpen={setSidebarOpen} />
       )}
-      <Hero />
+          <section className="flex flex-col mt-[140px]" id="hero">
+      <div
+        className="flex flex-col justify-center items-center"
+        id="title-block"
+      >
+        <h3 className="text-[20px] text-darkGray mt-8 mb-4">
+          Empowering tomorrow
+        </h3>
+        <h1 className="text-[30px] text-lightGray text-center px-4">
+          Innovative{" "}
+          <span className="text-darkBlue2 dark:text-lightBlue">
+            IT Solutions
+          </span>{" "}
+          for a connected world
+        </h1>
+      </div>
+      <canvas id="bg" />
+    </section>
+    <Hero />
       <Services deviceIsMobile={deviceIsMobile} />
       <OurWork deviceIsMobile={deviceIsMobile} />
       {/* <section className="flex flex-col justify-center items-center mt-10">

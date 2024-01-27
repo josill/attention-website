@@ -114,7 +114,7 @@ h2 {
 }
 
 canvas {
-  touch-action: auto!important;
+  touch-action: auto !important;
 }
 
 .darkCard {
@@ -182,4 +182,28 @@ canvas {
   .swiper-pagination-bullet-active {
     background-color: #9C9C9C !important;
   }
+}
+
+body {
+  --sb-track-color: #FCFDFF;
+  --sb-thumb-color: #4e4e4e;
+  --sb-size: 10px;
+
+  scrollbar-color: var(--sb-thumb-color) 
+                   var(--sb-track-color);
+}
+
+body::-webkit-scrollbar {
+  width: var(--sb-size);
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  display: none;
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 10px;
 }
