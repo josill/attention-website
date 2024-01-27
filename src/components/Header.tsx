@@ -39,7 +39,7 @@ function Header({
           />
         ) : (
           <div
-            className="flex w-full items-center justify-start"
+            className="flex w-full items-center"
             onClick={(e) => handleClick(e)}
           >
             <div className="border border-[0.25px] border-lineGray dark:border-customGray min-w-[30px] flex-grow max-w-[100px] mx-2"></div>
@@ -69,7 +69,7 @@ function Header({
                 />
               </div>
             </div>
-            <div className="border border-[0.25px] border-lineGray dark:border-customGray min-w-[30px] flex-grow max-w-[240px] mx-2"></div>
+            <div className="border border-[0.25px] border-lineGray dark:border-customGray min-w-[30px] flex-grow mx-2"></div>
             <div className="relative">
               <ThemeSwitch />
               <div className="absolute top-[-40px] right-[40%] border border-[0.25px] border-lineGray dark:border-customGray w-[1px] min-h-[30px] flex-grow mx-2"></div>

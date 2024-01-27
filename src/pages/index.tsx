@@ -25,6 +25,10 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
+import SwiperComponent from "@/components/SwiperComponent";
+import ServiceMaintenanceCard from "@/components/ServiceMaintenanceCard";
+import CustomSolutionsCard from "@/components/CustomSolutionsCard";
+import TechStackCard from "@/components/TechStackCard";
 
 export default function Index({
   sidebarOpen,
@@ -35,14 +39,9 @@ export default function Index({
   setSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
   deviceIsMobile: boolean;
 }) {
-  const { resolvedTheme, setTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
 
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const prevRef = useRef<HTMLButtonElement | null>(null);
-  const nextRef = useRef<HTMLButtonElement | null>(null);
-  // const [expandedCards, setExpandedCards] = useState<number[]>([]);
-
-  const content = [
+  const softwareDevelopmentCardContent = [
     {
       iconPath: "/services/e-commerce.svg",
       css: "bg-darkBlue dark:bg-[#383838] shadow-small dark:border-3 dark:border-orange",
@@ -59,72 +58,62 @@ export default function Index({
     },
   ];
 
-  // const handleCardClick = (index: number) => {
-  //   setExpandedCards((prevExpandedCards) => {
-  //     if (prevExpandedCards.includes(index)) {
-  //       return prevExpandedCards.filter((item) => item !== index);
-  //     } else {
-  //       return [...prevExpandedCards, index];
-  //     }
-  //   });
-  // };
-
-  // const icons = [
-  //   {
-  //     iconPath: "/services/icons/javascript-icon.svg",
-  //     css: "bg-yellow",
-  //     height: "50",
-  //     width: "50",
-  //   },
-  //   {
-  //     iconPath: "/services/icons/python-icon.svg",
-  //     css: "bg-react-gradient",
-  //     height: "50",
-  //     width: "50",
-  //   },
-  //   {
-  //     iconPath: "/services/icons/csharp-icon.svg",
-  //     css: "bg-csharp-gradient",
-  //     height: "50",
-  //     width: "50",
-  //   },
-  //   {
-  //     iconPath: "/services/icons/react-icon.svg",
-  //     css: "bg-react-gradient",
-  //     height: "50",
-  //     width: "50",
-  //   },
-  //   {
-  //     iconPath: "/services/icons/nextjs-icon.svg",
-  //     css: "bg-react-gradient",
-  //     height: "50",
-  //     width: "50",
-  //   },
-  //   {
-  //     iconPath: "/services/icons/node-icon.svg",
-  //     css: "bg-react-gradient",
-  //     height: "50",
-  //     width: "50",
-  //   },
-  //   {
-  //     iconPath: "/services/icons/django-icon.svg",
-  //     css: "bg-django-gradient",
-  //     height: "35",
-  //     width: "35",
-  //   },
-  //   {
-  //     iconPath: "/services/icons/swift-icon3.png",
-  //     css: "bg-swift-gradient",
-  //     height: "90",
-  //     width: "90",
-  //   },
-  //   {
-  //     iconPath: "/services/icons/react-native-icon.svg",
-  //     css: "bg-react-gradient",
-  //     height: "50",
-  //     width: "50",
-  //   },
-  // ];
+  const techStacksContent = [
+    {
+      iconPath: "/services/icons/javascript-icon.svg",
+      css: "bg-yellow",
+      height: "50",
+      width: "50",
+    },
+    {
+      iconPath: "/services/icons/python-icon.svg",
+      css: "bg-react-gradient",
+      height: "50",
+      width: "50",
+    },
+    {
+      iconPath: "/services/icons/csharp-icon.svg",
+      css: "bg-csharp-gradient",
+      height: "50",
+      width: "50",
+    },
+    {
+      iconPath: "/services/icons/react-icon.svg",
+      css: "bg-react-gradient",
+      height: "50",
+      width: "50",
+    },
+    {
+      iconPath: "/services/icons/nextjs-icon.svg",
+      css: "bg-react-gradient",
+      height: "50",
+      width: "50",
+    },
+    {
+      iconPath: "/services/icons/node-icon.svg",
+      css: "bg-react-gradient",
+      height: "50",
+      width: "50",
+    },
+    {
+      iconPath: "/services/icons/django-icon.svg",
+      css: "bg-django-gradient",
+      height: "35",
+      width: "35",
+    },
+    {
+      iconPath: "/services/icons/swift-icon3.png",
+      css: "bg-swift-gradient",
+      height: "90",
+      width: "90",
+    },
+    {
+      iconPath: "/services/icons/react-native-icon.svg",
+      css: "bg-react-gradient",
+      height: "50",
+      width: "50",
+    },
+  ];
 
   const whyUsContent = [
     {
@@ -203,177 +192,13 @@ export default function Index({
 
   return (
     <div className="flex flex-col items-center justify-center overflow-hidden font-beVietnam bg-bgWhite dark:bg-black">
-      {deviceIsMobile && sidebarOpen && (
+     <div className="max-w-[1440px] w-full">
+     {deviceIsMobile && sidebarOpen && (
         <Sidebar isOpen={sidebarOpen} setIsOpen={setSidebarOpen} />
       )}
-      {/* <section className="flex flex-col mt-[140px]" id="hero">
-      <div
-        className="flex flex-col justify-center items-center"
-        id="title-block"
-      >
-        <h3 className="text-[20px] text-darkGray mt-8 mb-4">
-          Empowering tomorrow
-        </h3>
-        <h1 className="text-[30px] text-lightGray text-center px-4">
-          Innovative{" "}
-          <span className="text-darkBlue2 dark:text-lightBlue">
-            IT Solutions
-          </span>{" "}
-          for a connected world
-        </h1>
-      </div>
-      <canvas id="bg" />
-    </section> */}
       <Hero />
-      {/* <section
-        className="flex flex-col justify-center items-center sm:px-8"
-        id="services"
-      >
-        <div className="flex flex-row justify-between items-center w-full">
-          <div className="flex flex-grow items-center gap-x-2">
-            {!deviceIsMobile && (
-              <img
-              src={
-                resolvedTheme === "dark"
-                  ? "services/rectangle-dark.svg"
-                  : "services/rectangle-light.svg"
-              }
-              alt="Rectangle"
-              width={10}
-              height={10}
-            />
-            )}
-            <div className="border border-[0.25px] h-[1px] border-lineGray dark:border-darkGray3 w-full"></div>
-          </div>
-          <h2 className="text-customGray dark:text-white text-[25px] font-beVietnam font-light px-12 sm:px-16 pb-2">
-            Services
-          </h2>
-          <div className="flex flex-grow items-center justify-end gap-x-2">
-            <div className="border border-[0.25px] h-[1px] border-lineGray dark:border-darkGray3 w-full"></div>
-            {!deviceIsMobile && (
-              <img
-              src={
-                resolvedTheme === "dark"
-                  ? "services/rectangle-dark.svg"
-                  : "services/rectangle-light.svg"
-              }
-              alt="Rectangle"
-              width={10}
-              height={10}
-            />
-            )}
-          </div>
-        </div>
-        <div className="flex flex-col sm:grid sm:grid-cols-2 px-8 gap-x-8 mt-[-0.5em] mx-1 border-x-[1px] border-lineGray dark:border-darkGray3">
-          <SoftwareDevelopmentCard content={content} />
-          <SoftwareDevelopmentCard content={content} />
-          <SoftwareDevelopmentCard content={content} />
-          <SoftwareDevelopmentCard content={content} />
-        </div>
-      </section> */}
       <Services deviceIsMobile={deviceIsMobile} />
-      {/* <section className="flex flex-col justify-center items-center mt-10" id='our-work'>
-        <div className="flex flex-row justify-between items-center w-full">
-          <div className="border border-[0.25px] border-lineGray w-1/4"></div>
-          <h2 className="text-customGray dark:text-white text-[25px] font-beVietnam font-light">
-            Our work
-          </h2>
-          <div className="border border-[0.25px] border-lineGray w-1/4"></div>
-        </div>
-        <div className="flex flex-col items-start mt-10 w-1/2 pl-2">
-          <h3 className="text-black dark:text-white text-[20px] font-semibold">
-            Here are our latest works
-          </h3>
-          <p className="text-[16px] text-paragraphGray dark:text-textGray4 my-4 mt-4">
-            Lorem ipsum dolor sit amet consectetur. Ipsum vitae id sed dignissim tincidunt. Vehicula tortor sit condimentum eu nunc mauris pellentesque massa.
-          </p>
-        </div>
-          <Swiper
-            slidesPerView={'auto'}
-          modules={[Navigation, Scrollbar, A11y, Pagination]}
-          onInit={(swiper: any) => {
-            swiper.params.navigation.prevEl = prevRef.current;
-            swiper.params.navigation.nextEl = nextRef.current;
-            swiper.navigation.init();
-            swiper.navigation.update();
-          }}
-            pagination={true}
-            className="flex justify-center items-center"
-            lazyPreloadPrevNext={2}
-          >
-            <button
-              className={`prev-button z-50 ${currentSlide == 0 ? "swiper-button-disabled" : ""
-                }`}
-              ref={prevRef}
-            ></button>
-            <button
-              className={`next-button z-50 ${currentSlide === carouselItems.length - 1 ? "swiper-button-disabled" : ""
-                }`}
-              ref={nextRef}
-            ></button>
-            {carouselItems.map((item, index) => (
-              <SwiperSlide key={index}>
-                <div className="w-full flex items-center justify-center px-8">
-                  <div
-                    className="max-w-[80vw] min-h[250px] z-10 relative flex flex-col items-center justify-center py-4 pb-8 px-4 mt-8
-                    rounded-[30px] border border-[0.25px] border-lineGray dark:border-0 font-beVietnam bg-cardGray dark:bg-[url('/our-work/latest-work-card-bg-dark.svg')]
-                    bg-cover bg-center bg-blend-darken bg-blend-normal linear-gradient(to bottom, #272B34 0%, #1F2325 46%, #20222D 100%)"
-                  >
-                    <img
-                      src="/our-work/latest-works/latest-work-1.png"
-                      alt="latest work 1"
-                      height={200}
-                      width={300}
-                      className="rounded-[27px]"
-                    />
-                    <div className="flex gap-x-3 mt-5 text-[20px] text-textGray5">
-                      <div className="flex justify-center items-center rounded-[18px] px-2 py-1 gap-x-3 bg-react-gradient shadow-glow-weak">
-                        <img
-                          src="/services/icons/swift-icon.svg"
-                          alt="swift-icon"
-                          className="rounded-[10px]"
-                          height={30}
-                          width={30}
-                        />
-                        <p className="pr-2 pb-1">Swift</p>
-                      </div>
-                      <img
-                        src={
-                          resolvedTheme === "dark"
-                            ? "/our-work/plus-white.svg"
-                            : "/our-work/plus-black.svg"
-                        }
-                      />
-                      <div className="flex justify-center items-center rounded-[18px] px-2 py-1 gap-x-3 bg-react-gradient shadow-glow-weak">
-                        <img
-                          src="/services/icons/nextjs-icon.svg"
-                          alt="nextjs-icon"
-                          height={30}
-                          width={30}
-                        />
-                        <p className="pr-2 pb-1">Nextjs</p>
-                      </div>
-                    </div>
-                    <div className="flex flex-col items-start mt-8 px-4">
-                      <h3 className="text-black dark:text-white text-[20px] font-semibold">
-                        Custom website development
-                      </h3>
-                      <p className="text-[16px] text-paragraphGray dark:text-textGray4 my-4 mt-4">
-                        Fully integrated website solution. We also implemented the invetory
-                        system with updated stock overview.{" "}
-                      </p>
-                      <button className="flex text-darkBlue2 text-[20px] gap-x-3 px-4 py-2 mt-[20px] font-light bg-white rounded-[27px] shadow-buttonShadow justify-center items-center cursor-pointer">
-                        <p>See the work</p>
-                        <img src="/our-work/arrow-icon.svg" alt="arrow" className="mt-1" />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-      </section> */}
-      <OurWork />
+      <OurWork deviceIsMobile={deviceIsMobile} />
       {/* <section className="flex flex-col justify-center items-center mt-10">
         <div className="flex flex-row justify-between items-center w-[100vw]">
           <div className="border border-[0.25px] border-lineGray w-1/4"></div>
@@ -443,13 +268,13 @@ export default function Index({
             <div
               className={`flex flex-col justify-center items-start px-4 py-8 gap-y-[10px] flex-grow text-darkBlue4 dark:text-[#DBDBDB] rounded-[30px] group-hover:border-3 group-hover:border-darkBlue4
               ${
-                resolvedTheme === "dark" &&
+                theme === "dark" &&
                 "group-hover:bg-[#272B34] group-hover:border-[#4A648B]"
               }`}
             >
               <img
                 src={`${
-                  resolvedTheme === "dark"
+                  theme === "dark"
                     ? item.iconPathDark
                     : item.iconPathLight
                 }`}
@@ -464,7 +289,7 @@ export default function Index({
               className={`group-hover:bg-[url('/why-us/scratched-bg-tall-light.svg')] min-h-[60px] min-w-[60px] border-x-[0.5px] border-t-[0.5px] border-lightGray2 dark:border-darkGray3
               group-hover:text-red group-focus:text-red
               ${
-                resolvedTheme === "dark" &&
+                theme === "dark" &&
                 "group-hover:dark:bg-[url('/why-us/scratched-bg-tall-dark.svg')]"
               }`}
             >
@@ -482,7 +307,7 @@ export default function Index({
         >
           <img
             src={`${
-              resolvedTheme === "dark"
+              theme === "dark"
                 ? "why-us/mail-icon-dark.svg"
                 : "why-us/mail-icon-light.svg"
             }`}
@@ -494,7 +319,7 @@ export default function Index({
           <img
             className="contact-arrow animate-pulse"
             src={`${
-              resolvedTheme === "light"
+              theme === "light"
                 ? "why-us/arrow-icon-dark.svg"
                 : "why-us/arrow-icon-light.svg"
             }`}
@@ -535,6 +360,7 @@ export default function Index({
       </div>
     </section> */}
       <Contact />
+     </div>
     </div>
   );
 }

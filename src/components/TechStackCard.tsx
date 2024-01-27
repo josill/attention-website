@@ -14,7 +14,7 @@ interface TechStackCardProps {
 export default function TechStackCard({ content }: TechStackCardProps) {
   return (
     <div
-      className="w-full min-h-[350px] z-10 relative flex flex-col items-start py-4 px-8 mt-8 shadow-smallLight dark:shadow-smallDark
+      className="w-full min-h-[350px] z-10 relative flex flex-col items-start py-4 px-8 shadow-smallLight dark:shadow-smallDark
         rounded-[30px] border border-[0.25px] border-lineGray dark:border-0 font-beVietnam bg-[url('/services/tech-stack-card-bg-light.svg')]
         dark:bg-[url('/services/tech-stack-card-bg-dark.svg')] 
         bg-cover bg-center bg-blend-darken bg-blend-normal linear-gradient(to bottom, #272B34 0%, #1F2325 46%, #20222D 100%)"
