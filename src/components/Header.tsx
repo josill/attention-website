@@ -13,7 +13,7 @@ function Header({
 }) {
   return (
     <nav
-      className={`z-20 fixed flex justify-center items-center bg-bgWhite dark:bg-black px-2 py-4 font-spotnik w-full h-[140px]`}
+      className={`z-20 fixed flex justify-center items-center bg-bgWhite dark:bg-black px-4 sm:px-8 py-4 font-spotnik w-full h-[140px]`}
     >
       <div className="flex w-full justify-between items-center max-w-[1440px]">
         <div className="flex flex-row gap-x-[20px] md:gap-x-2 justify-center items-center">
@@ -33,7 +33,6 @@ function Header({
           <img
             src="/header/burger-menu.svg"
             alt="buger-menu"
-            className="pr-4"
             onClick={() => setSidebarOpen(!sidebarOpen)}
             id="burger-menu"
           />

@@ -20,7 +20,7 @@ export default function WhyUs({ content }: WhyUsProps) {
     className="flex flex-col justify-center items-center mt-[60px] font-beVietnam"
     id="why-us"
   >
-    <div className="flex flex-col justify-center items-center w-[100vw]">
+    <div className="flex flex-col justify-center items-center w-full">
       <h2 className="text-customGray dark:text-white text-[25px] font-light">
         Why us
       </h2>

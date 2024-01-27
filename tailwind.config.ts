@@ -9,10 +9,13 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
+  // purge: [
+  //   "./**/*.{js,ts,jsx,tsx,mdx}",
+  // ],
   theme: {
     screens: {
       sm: "768px",
-      md: "1250px",
+      md: "1440px",
     },
     fontFamily: {
       spotnik: ["Spotnik", "sans-serif"],

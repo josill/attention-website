@@ -14,9 +14,10 @@ import CarouselItemTeam from './CarouselItemTeam';
 interface SwiperComponentProps {
     carouselItems: CarouselItemWorkProps[] | CarouselItemTeamProps[];
     deviceIsMobile: boolean;
+    deviceIsTablet?: boolean;
 }
 
-function SwiperComponent({ carouselItems, deviceIsMobile }: SwiperComponentProps) {
+function SwiperComponent({ carouselItems, deviceIsMobile, deviceIsTablet }: SwiperComponentProps) {
     const [currentSlide, setCurrentSlide] = useState(0);
     const prevRef = useRef<HTMLButtonElement | null>(null);
     const nextRef = useRef<HTMLButtonElement | null>(null);
@@ -25,10 +26,22 @@ function SwiperComponent({ carouselItems, deviceIsMobile }: SwiperComponentProps
         setCurrentSlide(() => swiper.activeIndex);
     };
 
+    const slidesPerView = deviceIsMobile 
+    ? 'auto'
+    : carouselItems.some(item => 'techStacks' in item) 
+        ? 2 
+        : deviceIsTablet 
+            ? 3 
+            : 2;
+    console.log(deviceIsMobile)
     return (
         <Swiper
-            slidesPerView={deviceIsMobile ? 1 : 2}
-            spaceBetween={deviceIsMobile ? 0 : 32}
+        slidesPerView={
+            deviceIsMobile ? 1 : 
+            carouselItems.some(item => 'techStacks' in item) ? 2 :
+            deviceIsTablet ? 2 : 3
+        }
+        spaceBetween={32}
             modules={[Navigation, Scrollbar, A11y, Pagination]}
             onInit={(swiper: any) => {
                 swiper.params.navigation.prevEl = prevRef.current;

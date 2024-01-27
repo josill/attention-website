@@ -15,7 +15,7 @@ export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
     const checkWindowSize = () => {
       setIsMobile(window.innerWidth <= 768);
-      setIsTablet(window.innerWidth <= 1250);
+      setIsTablet(window.innerWidth <= 1440);
     };
 
     checkWindowSize();
@@ -29,8 +29,15 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <NextUIProvider>
       <ThemeProvider attribute="class">
-        <Header sidebarOpen={isOpen} setSidebarOpen={setIsOpen} deviceIsTablet={isTablet} />
-        <Index sidebarOpen={isOpen} setSidebarOpen={setIsOpen} deviceIsMobile={isMobile} />
+        <Header 
+        sidebarOpen={isOpen} 
+        setSidebarOpen={setIsOpen} 
+        deviceIsTablet={isTablet} />
+        <Index 
+        sidebarOpen={isOpen} 
+        setSidebarOpen={setIsOpen} 
+        deviceIsMobile={isMobile}
+        deviceIsTablet={isTablet} />
         {/* <Component {...pageProps} /> */}
         <Footer />
 
