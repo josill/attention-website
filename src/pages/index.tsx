@@ -194,11 +194,11 @@ export default function Index({
 
   return (
     <div className="flex flex-col items-center justify-center overflow-hidden font-beVietnam bg-bgWhite dark:bg-black">
+      <Hero />
       <div className="max-w-[1440px] w-full sm:px-8 md:px-0">
         {deviceIsTablet && sidebarOpen && (
           <Sidebar isOpen={sidebarOpen} setIsOpen={setSidebarOpen} />
         )}
-        <Hero />
         <Services deviceIsMobile={deviceIsMobile} />
         <OurWork deviceIsMobile={deviceIsMobile} />
         <Team deviceIsMobile={deviceIsMobile} deviceIsTablet={deviceIsTablet} />

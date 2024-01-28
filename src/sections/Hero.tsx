@@ -15,9 +15,9 @@ export default function Hero() {
   useEffect(() => {
     const scene = new THREE.Scene();
     const loader = new THREE.TextureLoader();
-    scene.background = loader.load(
-      theme === "light" ? "hero/grid-light.png" : "hero/grid-dark.png"
-    );
+    // scene.background = loader.load(
+    //   theme === "light" ? "hero/grid-light.png" : "hero/grid-dark.png"
+    // );
 
     const width = window.innerWidth;
     const header = document.querySelector("nav") || { clientHeight: 0 };
