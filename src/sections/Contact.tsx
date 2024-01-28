@@ -57,8 +57,9 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="mt-32">
-      <div className="flex flex-col justify-center items-center sm:items-start gap-y-4 px-8 text-textBlue">
+    <section id="contact" className="flex flex-row">
+      <div className="hidden sm:block ml-[10px] border-x-[0.5px] border-lightGray2 dark:border-darkGray3 min-h-[128px] min-w-[60px]" />
+      <div className="w-full flex flex-col justify-center items-center sm:items-start gap-y-4 px-8 pt-32 pb-16 text-textBlue">
         <h2 className="font-beVietnam text-darkBlue4 dark:text-white text-[30px] sm:text-[50px] mb-8">
           Get in touch today 👋
         </h2>
@@ -100,6 +101,7 @@ export default function Contact() {
           </button>
         </form>
       </div>
+      <div className="hidden sm:block mr-[20px] border-x-[0.5px] border-lightGray2 dark:border-darkGray3 min-h-[128px] min-w-[60px]" />
     </section>
   );
 }
