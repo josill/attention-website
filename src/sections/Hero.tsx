@@ -16,7 +16,7 @@ export default function Hero() {
     const scene = new THREE.Scene();
     const loader = new THREE.TextureLoader();
     scene.background = loader.load(
-      theme === "light" ? "landing/grid-light.png" : "landing/grid-dark.png"
+      theme === "light" ? "hero/grid-light.png" : "hero/grid-dark.png"
     );
 
     const width = window.innerWidth;

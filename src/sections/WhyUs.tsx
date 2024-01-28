@@ -26,7 +26,7 @@ export default function WhyUs({ content }: WhyUsProps) {
       </h2>
       <div className="w-full flex justify-evenly text-black">
         <div className="w-full flex flex-row">
-          <div className="min-w-[10px] border-t-[0.5px] border-lightGray2 dark:border-darkGray3"></div>
+          <div className="min-w-[10px] sm:min-w-[60px] border-t-[0.5px] border-lightGray2 dark:border-darkGray3"></div>
           <div className="bg-[url('/why-us/scratched-bg-light.svg')] dark:bg-[url('/why-us/scratched-bg-dark.svg')] min-h-[60px] min-w-[60px] border-x-[0.5px] border-t-[0.5px] border-lightGray2 dark:border-darkGray3"></div>
           <div className="flex-grow"></div>
         </div>
@@ -37,7 +37,7 @@ export default function WhyUs({ content }: WhyUsProps) {
             className="w-full flex flex-row border-t-[0.5px] border-lightGray2 dark:border-darkGray3 group"
             key={index}
           >
-            <div className="min-w-[10px] border-t-[0.5px] border-lightGray2 dark:border-darkGray3"></div>
+            <div className="min-w-[10px] sm:min-w-[60px] border-t-[0.5px] border-lightGray2 dark:border-darkGray3"></div>
             <div className="min-h-[60px] min-w-[60px] border-x-[0.5px] border-t-[0.5px] border-lightGray2 dark:border-darkGray3"></div>
             <div
               className={`flex flex-col justify-center items-start px-4 py-8 gap-y-[10px] flex-grow text-darkBlue4 dark:text-[#DBDBDB] rounded-[30px] group-hover:border-3 group-hover:border-darkBlue4
@@ -60,24 +60,20 @@ export default function WhyUs({ content }: WhyUsProps) {
               <p className="text-[14px]">{item.description}</p>
             </div>
             <div
-              className={`group-hover:bg-[url('/why-us/scratched-bg-tall-light.svg')] min-h-[60px] min-w-[60px] border-x-[0.5px] border-t-[0.5px] border-lightGray2 dark:border-darkGray3
-              group-hover:text-red group-focus:text-red
-              ${
-                theme === "dark" &&
-                "group-hover:dark:bg-[url('/why-us/scratched-bg-tall-dark.svg')]"
-              }`}
+              className="group-hover:bg-[url('/why-us/scratched-bg-tall-light.svg')] min-h-[60px] min-w-[60px] border-x-[0.5px] border-t-[0.5px] border-lightGray2 dark:border-darkGray3
+              group-hover:text-red group-focus:text-red group-hover:dark:bg-[url('/why-us/scratched-bg-tall-dark.svg')]"
             >
             </div>
-            <div className="min-w-[20px] border-t-[0.5px] border-lightGray2 dark:border-darkGray3"></div>
+            <div className="min-w-[20px] sm:min-w-[60px] border-t-[0.5px] border-lightGray2 dark:border-darkGray3"></div>
           </div>
         );
       })}
       <div className="w-full flex flex-row border-y-[0.5px] border-lightGray2 dark:border-darkGray3 group">
-        <div className="min-w-[10px] border-t-[0.5px] border-lightGray2 dark:border-darkGray3"></div>
+        <div className="min-w-[10px] sm:min-w-[60px] border-t-[0.5px] border-lightGray2 dark:border-darkGray3"></div>
         <div className="min-h-[60px] min-w-[60px] border-x-[0.5px] border-t-[0.5px] border-lightGray2 dark:border-darkGray3"></div>
         <div
           className="relative flex flex-col justify-center items-center px-8 py-8 gap-y-[20px] flex-grow text-darkBlue4 dark:text-[#DBDBDB] rounded-[30px] group-hover:hover:border-3 group-hover:border-darkBlue4        
-          group-hover:dark:bg-[#272B34] group-hover:border-[#4A648B]"
+          group-hover:border-[#4A648B]"
         >
           <img
             src={`${
@@ -106,7 +102,7 @@ export default function WhyUs({ content }: WhyUsProps) {
           className="group-hover:bg-[url('/why-us/scratched-bg-tall-light.svg')] min-h-[60px] min-w-[60px] border-x-[0.5px] border-t-[0.5px] border-lightGray2 dark:border-darkGray3
           group-hover:dark:bg-[url('/why-us/scratched-bg-tall-dark.svg')]"
         ></div>
-        <div className="min-w-[20px] border-t-[0.5px] border-lightGray2 dark:border-darkGray3"></div>
+        <div className="min-w-[20px] sm:min-w-[60px] border-t-[0.5px] border-lightGray2 dark:border-darkGray3"></div>
       </div>
     </div>
   </section>

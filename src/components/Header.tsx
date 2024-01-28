@@ -35,6 +35,7 @@ function Header({
             alt="buger-menu"
             onClick={() => setSidebarOpen(!sidebarOpen)}
             id="burger-menu"
+            className="cursor-pointer"
           />
         ) : (
           <div
