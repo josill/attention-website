@@ -33,7 +33,6 @@ function SwiperComponent({ carouselItems, deviceIsMobile, deviceIsTablet }: Swip
         : deviceIsTablet 
             ? 3 
             : 2;
-    console.log(deviceIsMobile)
     return (
         <Swiper
         slidesPerView={

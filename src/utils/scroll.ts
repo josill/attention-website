@@ -1,4 +1,4 @@
-const yOffset = -80;
+const yOffset = -160;
 
 export default function handleClick(e: React.MouseEvent<HTMLParagraphElement, MouseEvent>) {
     e.preventDefault();

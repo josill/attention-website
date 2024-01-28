@@ -17,14 +17,14 @@ export default function Contact() {
     return emailRegex.test(email);
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    setIsLoading(true);
+  const handleFocus = () => {
     setEmailError(false);
     setMessageError(false);
-    e.preventDefault();
+  };
 
-    console.log("Submitting contact form...");
-    console.log(!email, !message, !isValidEmail(email));
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    setIsLoading(true);
+    e.preventDefault();
 
     if (!email || !message || !isValidEmail(email)) {
       setEmailError(!email || !isValidEmail(email));
@@ -65,6 +65,7 @@ export default function Contact() {
         </h2>
         <form
           onSubmit={handleSubmit}
+          onFocus={handleFocus}
           className="flex flex-col justify-center items-center sm:items-start w-full gap-y-4 text-textBlue"
         >
           <input

@@ -10,11 +10,11 @@ export default function Footer() {
       >
         <div className="hidden sm:block ml-[10px] sm:ml-[60px] border-x-[0.5px] border-lightGray2 dark:border-darkGray3 min-h-[128px] min-w-[60px]" />
         <div className="w-full flex flex-col sm:flex-row items-center justify-center sm:justify-end sm:gap-x-8 sm:pr-16 gap-y-[20px] py-[20px]">
-          <p>Services</p>
-          <p>Our work</p>
-          <p>The team</p>
-          <p>Why us?</p>
-          <p>Get in touch</p>
+          <p className="cursor-pointer">Services</p>
+          <p className="cursor-pointer">Our work</p>
+          <p className="cursor-pointer">The team</p>
+          <p className="cursor-pointer">Why us?</p>
+          <p className="cursor-pointer">Get in touch</p>
         </div>
         <div className="hidden sm:block mr-[20px] sm:mr-[60px] border-x-[0.5px] border-lightGray2 dark:border-darkGray3 min-h-[128px] min-w-[60px]" />
       </div>
