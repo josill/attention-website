@@ -68,7 +68,7 @@ export default function Team({
           )}
         </div>
       </div>
-      <div className="flex flex-col w-full px-8 sm:py-16 md:px-16 sm:gap-8 sm:border-x-[1px] sm:border-lineGray sm:dark:border-darkGray">
+      <div className="flex flex-col w-full px-8 sm:py-16 lg:px-16 sm:gap-8 sm:border-x-[1px] sm:border-lineGray sm:dark:border-darkGray">
         <div className="sm:w-full my-4">
           <SwiperComponent
             carouselItems={carouselItems}

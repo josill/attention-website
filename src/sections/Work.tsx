@@ -128,7 +128,7 @@ export default function Work({ deviceIsMobile }: { deviceIsMobile: boolean }) {
           )}
         </div>
       </div>
-      <div className="flex flex-col w-full px-8 sm:py-16 md:px-16 sm:gap-8 sm:border-x-[1px] sm:border-lineGray sm:dark:border-darkGray">
+      <div className="flex flex-col w-full px-8 sm:py-16 lg:px-16 sm:gap-8 sm:border-x-[1px] sm:border-lineGray sm:dark:border-darkGray">
         <div className="flex flex-col items-start mt-10 w-full">
           <h3 className="text-black dark:text-white text-[20px] font-semibold">
             Here are our latest works

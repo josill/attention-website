@@ -26,7 +26,7 @@ export default function TechStackCard({ content }: TechStackCardProps) {
         We use the latest technologies to build your product and we don&apos;t
         overcomplicate our tech stack.
       </p>
-      <div className="grid grid-cols-3 sm:grid-cols-4 gap-4 sm:gap-y-8 items-center justify-center w-full">
+      <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-y-8 items-center justify-center w-full">
         {content.map((icon, index) => {
           return (
             <div

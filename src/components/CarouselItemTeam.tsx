@@ -9,7 +9,7 @@ export default function CarouselItemTeam({
   link,
 }: CarouselItemTeamProps) {
   return (
-    <div className="max-w-full flex items-center justify-center my-4 md:mx-4 mx-[16px]">
+    <div className="max-w-full flex items-center justify-center my-4 lg:mx-4 mx-[16px]">
       <div
         className="min-h[250px] z-10 relative flex flex-col items-center justify-center py-4 pb-8 px-4 mt-8 shadow-smallLight dark:shadow-smallDark
             rounded-[30px] border border-[0.25px] border-lineGray dark:border-0 font-beVietnam bg-cardGray dark:bg-[url('/our-work/latest-work-card-bg-dark.svg')]

@@ -16,10 +16,10 @@ function Header({
       className={`z-20 fixed flex justify-center items-center bg-bgWhite dark:bg-black px-4 sm:px-8 py-4 font-spotnik w-full h-[140px]`}
     >
       <div className="flex w-full justify-between items-center max-w-[1440px]">
-        <div className="flex flex-row gap-x-[20px] md:gap-x-2 justify-center items-center">
-          <div className="border border-[0.25px] border-lineGray dark:border-customGray min-w-[30px] md:max-w-[36px]"></div>
+        <div className="flex flex-row gap-x-[20px] lg:gap-x-2 justify-center items-center">
+          <div className="border border-[0.25px] border-lineGray dark:border-customGray min-w-[30px] lg:max-w-[36px]"></div>
           <h1
-            className={`text-4xl md:text-3xl text-center text-black dark:text-headerWhite
+            className={`text-4xl lg:text-3xl text-center text-black dark:text-headerWhite
           ${
             !deviceIsTablet &&
             "border-[1px] border-lineGray dark:border-customGray rounded-[13px] p-3"
@@ -74,7 +74,7 @@ function Header({
               <ThemeSwitch />
               <div className="absolute top-[-40px] right-[40%] border border-[0.25px] border-lineGray dark:border-customGray w-[1px] min-h-[30px] flex-grow mx-2"></div>
             </div>
-            <div className="border border-[0.25px] border-lineGray dark:border-customGray min-w-[30px] md:max-w-[36px]"></div>
+            <div className="border border-[0.25px] border-lineGray dark:border-customGray min-w-[30px] lg:max-w-[36px]"></div>
           </div>
         )}
       </div>

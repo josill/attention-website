@@ -25,7 +25,7 @@ export default function CarouselItemWork({
 }: CarouselItemWorkProps) {
   const { resolvedTheme } = useTheme();
   return (
-    <div className="max-w-fit flex items-center justify-center h-full md:mx-4 mx-[16px]">
+    <div className="max-w-fit flex items-center justify-center h-full lg:mx-4 mx-[16px]">
       <div
         className="min-h[250px] h-full z-10 relative flex flex-col items-start justify-center py-4 pb-8 px-4 mt-8 shadow-smallLight dark:shadow-smallDark
                     rounded-[30px]  border-[0.25px] border-lineGray dark:border-0 font-beVietnam bg-cardGray dark:bg-[url('/our-work/latest-work-card-bg-dark.svg')]
@@ -52,7 +52,7 @@ export default function CarouselItemWork({
                   height={30}
                   width={30}
                 />
-                <p className="pr-2 pb-1">{techStack.techName}</p>
+                <p className="pr-2 pb-1 dark:text-black">{techStack.techName}</p>
               </div>
               {index % 2 === 0 && index !== techStacks.length - 1 && (
                 <img

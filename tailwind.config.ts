@@ -16,7 +16,8 @@ const config: Config = {
   theme: {
     screens: {
       sm: "768px",
-      md: "1440px",
+      md: "1024px",
+      lg: "1440px",
     },
     fontFamily: {
       spotnik: ["Spotnik", "sans-serif"],
