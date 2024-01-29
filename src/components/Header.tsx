@@ -15,19 +15,17 @@ function Header({
     <nav
       className={`z-20 fixed flex justify-center items-center bg-bgWhite dark:bg-black py-4 font-spotnik w-full h-[140px]`}
     >
-      <div className="border border-[0.25px] border-lineGray dark:border-customGray min-w-[30px] lg:min-w-[36px] flex-grow"></div>
-      <div className="flex w-full items-center max-w-[1440px]">
-        <div className="flex flex-row gap-x-[20px] lg:gap-x-2 justify-center items-center">
+      <div className="hidden lg:block border-[0.25px] border-lineGray dark:border-customGray min-w-[30px] lg:min-w-[36px] flex-grow"></div>
+      <div className="flex lg:grid lg:grid-cols-6 w-full items-center max-w-[1440px]">
+        <div className="flex flex-row justify-start items-center col-span-1 w-full">
+        <div className="lg:hidden border border-[0.25px] border-lineGray dark:border-customGray min-w-[20px]"></div>
           <h1
-            className={`text-4xl lg:text-3xl text-center text-black dark:text-headerWhite
-          ${
-            !deviceIsTablet &&
-            "border-[1px] border-lineGray dark:border-customGray rounded-[13px] p-3"
-          }
-        `}
+            className="text-4xl lg:text-3xl text-center text-black dark:text-headerWhite ml-4 lg:ml-0
+            lg:border-[1px] lg:border-lineGray lg:dark:border-customGray lg:rounded-[13px] lg:p-3"
           >
             Attention
           </h1>
+          <div className="hidden lg:block border-[0.25px] border-lineGray dark:border-customGray min-w-[30px] lg:min-w-[36px] flex-grow"></div>
         </div>
         {deviceIsTablet ? (
           <img
@@ -35,14 +33,14 @@ function Header({
             alt="buger-menu"
             onClick={() => setSidebarOpen(!sidebarOpen)}
             id="burger-menu"
-            className="cursor-pointer"
+            className="cursor-pointer mr-8"
           />
         ) : (
           <div
-            className="flex w-full items-center"
+            className="flex w-full items-center col-span-4"
             onClick={(e) => handleClick(e)}
           >
-            <div className="border border-[0.25px] border-lineGray dark:border-customGray min-w-[30px] flex-grow mx-2"></div>
+            <div className="border-[0.25px] border-lineGray dark:border-customGray min-w-[30px] flex-grow"></div>
             <div className="min-w-1/2 flex flex-row gap-x-[20px] justify-center items-center border-[1px] border-lineGray dark:border-customGray rounded-[32px] py-2 px-2">
               <h2 className="text-[20px] text-black dark:text-headerWhite hover:bg-darkBlue4 hover:text-lightGray2 hover:dark:bg-headerGray rounded-[23.5px] px-3 py-2 mb-1 cursor-pointer">
                 Services
@@ -69,15 +67,16 @@ function Header({
                 />
               </div>
             </div>
-            <div className="border border-[0.25px] border-lineGray dark:border-customGray min-w-[30px] flex-grow mx-2"></div>
-            <div className="relative">
-              <ThemeSwitch />
-              <div className="absolute top-[-40px] right-[40%] border border-[0.25px] border-lineGray dark:border-customGray w-[1px] min-h-[30px] flex-grow mx-2"></div>
-            </div>
+            <div className="border-[0.25px] border-lineGray dark:border-customGray min-w-[30px] flex-grow"></div>
           </div>
         )}
+        <div className="hidden lg:flex items-center relative col-span-1 mr-[-0.5em]">
+        <div className="border-[0.25px] border-lineGray dark:border-customGray min-w-[30px] lg:min-w-[36px] flex-grow"></div>
+          <ThemeSwitch />
+          <div className="absolute top-[-55px] right-[14%] border border-[0.25px] border-lineGray dark:border-customGray w-[1px] min-h-[55px] flex-grow"></div>
+        </div>
       </div>
-      <div className="border border-[0.25px] border-lineGray dark:border-customGray min-w-[30px] lg:min-w-[36px] flex-grow"></div>
+      <div className="hidden lg:block border-[0.25px] border-lineGray dark:border-customGray min-w-[30px] lg:min-w-[36px] flex-grow"></div>
     </nav>
   );
 }
