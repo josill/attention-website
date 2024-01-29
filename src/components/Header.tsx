@@ -13,11 +13,11 @@ function Header({
 }) {
   return (
     <nav
-      className={`z-20 fixed flex justify-center items-center bg-bgWhite dark:bg-black px-4 sm:px-8 py-4 font-spotnik w-full h-[140px]`}
+      className={`z-20 fixed flex justify-center items-center bg-bgWhite dark:bg-black py-4 font-spotnik w-full h-[140px]`}
     >
-      <div className="flex w-full justify-between items-center max-w-[1440px]">
+      <div className="border border-[0.25px] border-lineGray dark:border-customGray min-w-[30px] lg:min-w-[36px] flex-grow"></div>
+      <div className="flex w-full items-center max-w-[1440px]">
         <div className="flex flex-row gap-x-[20px] lg:gap-x-2 justify-center items-center">
-          <div className="border border-[0.25px] border-lineGray dark:border-customGray min-w-[30px] lg:max-w-[36px]"></div>
           <h1
             className={`text-4xl lg:text-3xl text-center text-black dark:text-headerWhite
           ${
@@ -42,7 +42,7 @@ function Header({
             className="flex w-full items-center"
             onClick={(e) => handleClick(e)}
           >
-            <div className="border border-[0.25px] border-lineGray dark:border-customGray min-w-[30px] flex-grow max-w-[100px] mx-2"></div>
+            <div className="border border-[0.25px] border-lineGray dark:border-customGray min-w-[30px] flex-grow mx-2"></div>
             <div className="min-w-1/2 flex flex-row gap-x-[20px] justify-center items-center border-[1px] border-lineGray dark:border-customGray rounded-[32px] py-2 px-2">
               <h2 className="text-[20px] text-black dark:text-headerWhite hover:bg-darkBlue4 hover:text-lightGray2 hover:dark:bg-headerGray rounded-[23.5px] px-3 py-2 mb-1 cursor-pointer">
                 Services
@@ -74,10 +74,10 @@ function Header({
               <ThemeSwitch />
               <div className="absolute top-[-40px] right-[40%] border border-[0.25px] border-lineGray dark:border-customGray w-[1px] min-h-[30px] flex-grow mx-2"></div>
             </div>
-            <div className="border border-[0.25px] border-lineGray dark:border-customGray min-w-[30px] lg:max-w-[36px]"></div>
           </div>
         )}
       </div>
+      <div className="border border-[0.25px] border-lineGray dark:border-customGray min-w-[30px] lg:min-w-[36px] flex-grow"></div>
     </nav>
   );
 }
