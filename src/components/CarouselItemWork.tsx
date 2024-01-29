@@ -25,11 +25,11 @@ export default function CarouselItemWork({
 }: CarouselItemWorkProps) {
   const { resolvedTheme } = useTheme();
   return (
-    <div className="max-w-fit flex items-center justify-center">
+    <div className="max-w-fit flex items-center justify-center h-full md:mx-4 mx-[16px]">
       <div
-        className="min-h[250px] z-10 relative flex flex-col items-start justify-center py-4 pb-8 px-4 mt-8 shadow-smallLight dark:shadow-smallDark
-                    rounded-[30px] border border-[0.25px] border-lineGray dark:border-0 font-beVietnam bg-cardGray dark:bg-[url('/our-work/latest-work-card-bg-dark.svg')]
-                    bg-cover bg-center bg-blend-darken bg-blend-normal linear-gradient(to bottom, #272B34 0%, #1F2325 46%, #20222D 100%)"
+        className="min-h[250px] h-full z-10 relative flex flex-col items-start justify-center py-4 pb-8 px-4 mt-8 shadow-smallLight dark:shadow-smallDark
+                    rounded-[30px]  border-[0.25px] border-lineGray dark:border-0 font-beVietnam bg-cardGray dark:bg-[url('/our-work/latest-work-card-bg-dark.svg')]
+                    bg-cover bg-center  bg-blend-normal linear-gradient(to bottom, #272B34 0%, #1F2325 46%, #20222D 100%)"
       >
         <img
           src={imgPath}

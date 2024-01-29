@@ -167,6 +167,15 @@ canvas {
   margin: 0 0.1rem;
 }
 
+.swiper-pagination{
+  bottom: -5px !important;
+}
+
+.swiper-slide {
+  height: auto !important;
+}
+
+
 @media (prefers-color-scheme: light) {
   .swiper-pagination-bullet {
     background-color: #e8e8e8 !important;
