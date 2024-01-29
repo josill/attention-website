@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 import { useSpring, animated, config } from "react-spring";
 import useMeasure from "react-use-measure";
-import ServiceCard from './ServiceCard';
+import ServiceCard from "./ServiceCard";
 
 interface CardContent {
   iconPath: string;
@@ -14,7 +14,9 @@ interface SoftwareDevelopmentCardProps {
   content: CardContent[];
 }
 
-export default function SoftwareDevelopmentCard({ content }: SoftwareDevelopmentCardProps) {
+export default function SoftwareDevelopmentCard({
+  content,
+}: SoftwareDevelopmentCardProps) {
   const [expandedCards, setExpandedCards] = useState<number[]>([]);
   const [measureRef, { height }] = useMeasure();
 
@@ -41,15 +43,15 @@ export default function SoftwareDevelopmentCard({ content }: SoftwareDevelopment
       </p>
       <div className="flex flex-col gap-y-8">
         {content.map((item, index) => (
-          <ServiceCard 
-          content={item} 
-          isExpanded={expandedCards.includes(index)} 
-          setExpandedCards={setExpandedCards}
-          index={index}
-          key={index} />
+          <ServiceCard
+            content={item}
+            isExpanded={expandedCards.includes(index)}
+            setExpandedCards={setExpandedCards}
+            index={index}
+            key={index}
+          />
         ))}
-      </div>  
+      </div>
     </div>
-  )
+  );
 }
-

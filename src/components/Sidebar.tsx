@@ -1,24 +1,35 @@
-import React, { useEffect, useRef } from 'react';
-import ThemeSwitch from './ThemeSwitch';
+import React, { useEffect, useRef } from "react";
+import ThemeSwitch from "./ThemeSwitch";
 import handleClick from "@/utils/scroll";
 
-export default function Sidebar({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: React.Dispatch<React.SetStateAction<boolean>>}) {
+export default function Sidebar({
+  isOpen,
+  setIsOpen,
+}: {
+  isOpen: boolean;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}) {
   const sidebarRef = useRef<HTMLDivElement>(null);
 
   const animationClasses = isOpen ? `sidebar open` : `sidebar closed`;
 
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
-      const burgerMenuElement = document.getElementById('burger-menu');
-      if (sidebarRef.current && !sidebarRef.current.contains(event.target as Node) && isOpen && event.target !== burgerMenuElement) {
+      const burgerMenuElement = document.getElementById("burger-menu");
+      if (
+        sidebarRef.current &&
+        !sidebarRef.current.contains(event.target as Node) &&
+        isOpen &&
+        event.target !== burgerMenuElement
+      ) {
         setIsOpen(false);
       }
     };
 
-    document.addEventListener('mousedown', handleOutsideClick);
+    document.addEventListener("mousedown", handleOutsideClick);
 
     return () => {
-      document.removeEventListener('mousedown', handleOutsideClick);
+      document.removeEventListener("mousedown", handleOutsideClick);
     };
   }, []);
 
@@ -35,7 +46,9 @@ export default function Sidebar({ isOpen, setIsOpen }: { isOpen: boolean, setIsO
       <p>Our work</p>
       <p>The team</p>
       <p>Why us?</p>
-      <button className='p-2 px-4 rounded-[27px] bg-white text-darkBlue2 text-[18px] shadow-xl'>Contact us</button>
+      <button className="p-2 px-4 rounded-[27px] bg-white text-darkBlue2 text-[18px] shadow-xl">
+        Contact us
+      </button>
     </div>
   );
 }

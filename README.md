@@ -1,9 +1,10 @@
 ## Getting Started
 
 First, install necessary packages:
+
 ```bash
 npm i
-# or 
+# or
 yarn install
 ```
 

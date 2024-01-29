@@ -1,12 +1,12 @@
 import React from "react";
-import {Switch} from "@nextui-org/react";
-import {MoonIcon} from "./MoonIcon";
-import {SunIcon} from "./SunIcon";
+import { Switch } from "@nextui-org/react";
+import { MoonIcon } from "./MoonIcon";
+import { SunIcon } from "./SunIcon";
 import { useTheme } from "next-themes";
 
 export default function ThemeSwitch() {
   const { resolvedTheme, setTheme } = useTheme();
-  
+
   return (
     <Switch
       defaultChecked={resolvedTheme === "dark"}
@@ -15,7 +15,6 @@ export default function ThemeSwitch() {
       startContent={<SunIcon />}
       endContent={<MoonIcon />}
       onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-    >
-    </Switch>
+    ></Switch>
   );
 }

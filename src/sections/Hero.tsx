@@ -31,7 +31,7 @@ export default function Hero() {
       60,
       window.innerWidth / height,
       0.1,
-      1000
+      1000,
     );
     camera.position.setZ(70);
 
@@ -59,7 +59,7 @@ export default function Hero() {
 
     const geometry = new THREE.IcosahedronGeometry(
       16,
-      theme === "dark" ? 60 : 20
+      theme === "dark" ? 60 : 20,
     );
     const sphere = new THREE.Mesh(geometry, material);
     sphere.castShadow = true;

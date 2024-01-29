@@ -88,9 +88,9 @@ export default function Services({
 
   return (
     <section
-    className="flex flex-col justify-center items-center"
-    id="services"
-  >
+      className="flex flex-col justify-center items-center"
+      id="services"
+    >
       <div className="flex flex-row justify-between items-center w-full">
         <div className="flex flex-grow items-center gap-x-4">
           {!deviceIsMobile && (
@@ -132,6 +132,6 @@ export default function Services({
         <CustomSolutionsCard />
         <TechStackCard content={techStacksContent} />
       </div>
-  </section>
+    </section>
   );
 }

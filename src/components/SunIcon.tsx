@@ -1,6 +1,6 @@
 import React from "react";
 export const SunIcon = (
-  props: React.JSX.IntrinsicAttributes & React.SVGProps<SVGSVGElement>
+  props: React.JSX.IntrinsicAttributes & React.SVGProps<SVGSVGElement>,
 ) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"

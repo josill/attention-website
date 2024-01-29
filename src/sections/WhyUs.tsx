@@ -59,8 +59,7 @@ export default function WhyUs({ content }: WhyUsProps) {
         })}
         <div className="w-full flex flex-row border-y-[0.5px] border-lightGray2 dark:border-darkGray3 group">
           <div className="ml-[10px] sm:ml-[60px] min-h-[60px] min-w-[60px] border-x-[0.5px] border-t-[0.5px] border-lightGray2 dark:border-darkGray3"></div>
-          <div
-            className="relative flex flex-col justify-center items-center px-8 py-8 gap-y-[20px] flex-grow text-darkBlue4 dark:text-[#DBDBDB] rounded-[30px] group-hover:hover:border-3 group-hover:border-darkBlue4 group-hover:border-[#4A648B]">
+          <div className="relative flex flex-col justify-center items-center px-8 py-8 gap-y-[20px] flex-grow text-darkBlue4 dark:text-[#DBDBDB] rounded-[30px] group-hover:hover:border-3 group-hover:border-darkBlue4 group-hover:border-[#4A648B]">
             <img
               src={`${
                 theme === "dark"
@@ -84,8 +83,10 @@ export default function WhyUs({ content }: WhyUsProps) {
               width={90}
             />
           </div>
-          <div className="group-hover:bg-[url('/why-us/scratched-bg-tall-light.svg')] min-h-[60px] min-w-[60px] border-x-[0.5px] border-t-[0.5px] border-lightGray2 dark:border-darkGray3
-          group-hover:dark:bg-[url('/why-us/scratched-bg-tall-dark.svg')] mr-[20px] sm:mr-[60px]" />
+          <div
+            className="group-hover:bg-[url('/why-us/scratched-bg-tall-light.svg')] min-h-[60px] min-w-[60px] border-x-[0.5px] border-t-[0.5px] border-lightGray2 dark:border-darkGray3
+          group-hover:dark:bg-[url('/why-us/scratched-bg-tall-dark.svg')] mr-[20px] sm:mr-[60px]"
+          />
         </div>
       </div>
     </section>

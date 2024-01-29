@@ -29,18 +29,19 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <NextUIProvider>
       <ThemeProvider attribute="class">
-        <Header 
-        sidebarOpen={isOpen} 
-        setSidebarOpen={setIsOpen} 
-        deviceIsTablet={isTablet} />
-        <Index 
-        sidebarOpen={isOpen} 
-        setSidebarOpen={setIsOpen} 
-        deviceIsMobile={isMobile}
-        deviceIsTablet={isTablet} />
+        <Header
+          sidebarOpen={isOpen}
+          setSidebarOpen={setIsOpen}
+          deviceIsTablet={isTablet}
+        />
+        <Index
+          sidebarOpen={isOpen}
+          setSidebarOpen={setIsOpen}
+          deviceIsMobile={isMobile}
+          deviceIsTablet={isTablet}
+        />
         {/* <Component {...pageProps} /> */}
         <Footer />
-
       </ThemeProvider>
     </NextUIProvider>
   );

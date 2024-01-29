@@ -79,7 +79,7 @@ export default function Contact() {
             onChange={(e) => setEmail(e.target.value)}
             placeholder={emailError ? "*Please add your email" : "Email*"}
             className={`w-full max-w-[450px] min-h-[50px] rounded-[16px] border-2 pl-4 dark:bg-customBlack4
-            ${emailError ? "text-red border-red": "border-darkBlue4"}
+            ${emailError ? "text-red border-red" : "border-darkBlue4"}
             `}
           />
           <input
@@ -87,7 +87,7 @@ export default function Contact() {
             onChange={(e) => setMessage(e.target.value)}
             placeholder={messageError ? "*Please add a message" : "Message*"}
             className={`w-full max-w-[650px] text-start min-h-[200px] rounded-[16px] border-2 pl-4 dark:bg-customBlack4 pb-[140px]
-            ${messageError ? "text-red border-red": "border-darkBlue4"}
+            ${messageError ? "text-red border-red" : "border-darkBlue4"}
             `}
           />
           <button
@@ -95,7 +95,7 @@ export default function Contact() {
             className="flex items-center justify-center rounded-[16px] bg-darkBlue4 border-2 border-darkBlue4 w-full max-w-[650px] min-h-[50px] text-[20px] text-white"
           >
             {isLoading ? (
-              <Spinner color="white" labelColor="foreground"/>
+              <Spinner color="white" labelColor="foreground" />
             ) : (
               <p>Send</p>
             )}
