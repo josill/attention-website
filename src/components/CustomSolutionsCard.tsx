@@ -8,7 +8,7 @@ rounded-[30px] border border-[0.25px] border-lineGray dark:border-0 font-beVietn
 dark:bg-[url('/services/custom-solutions-card-bg-dark.svg')] 
 bg-cover bg-center bg-blend-darken bg-blend-normal linear-gradient(to bottom, #272B34 0%, #1F2325 46%, #20222D 100%)"
     >
-      <h3 className="text-customBlack2 dark:text-white text-[20px] font-semibold">
+      <h3 className="text-#181818 dark:text-white text-[20px] font-semibold">
         Custom solutions
       </h3>
       <p className="text-[16px] text-textGray dark:text-textGray my-4 mt-4">

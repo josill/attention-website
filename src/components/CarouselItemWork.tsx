@@ -38,7 +38,7 @@ export default function CarouselItemWork({
           width={300}
           className="rounded-[27px]"
         />
-        <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 mt-5 text-[20px] text-textGray5">
+        <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 mt-5 text-[20px] text-#32302E">
           {techStacks.map((techStack, index) => (
             <div
               className="flex flex-row items-center justify-center gap-x-3"
@@ -70,7 +70,7 @@ export default function CarouselItemWork({
           <h3 className="text-black dark:text-white text-[20px] font-semibold">
             {title}
           </h3>
-          <p className="text-[16px] text-paragraphGray dark:text-textGray4 my-4 mt-4">
+          <p className="text-[16px] text-paragraphGray dark:text-textGray2 my-4 mt-4">
             {description}
           </p>
           <a

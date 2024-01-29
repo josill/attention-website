@@ -26,19 +26,19 @@ export default function WhyUs({ content }: WhyUsProps) {
         </h2>
         <div className="w-full flex justify-evenly text-black">
           <div className="w-full flex flex-row">
-            <div className="min-w-[10px] sm:min-w-[60px] border-t-[0.5px] border-lightGray2 dark:border-darkGray3"></div>
-            <div className="bg-[url('/why-us/scratched-bg-light.svg')] dark:bg-[url('/why-us/scratched-bg-dark.svg')] min-h-[60px] min-w-[60px] border-x-[0.5px] border-t-[0.5px] border-lightGray2 dark:border-darkGray3"></div>
+            <div className="min-w-[10px] sm:min-w-[60px] border-t-[0.5px] border-lightGray2 dark:border-darkGray"></div>
+            <div className="bg-[url('/why-us/scratched-bg-light.svg')] dark:bg-[url('/why-us/scratched-bg-dark.svg')] min-h-[60px] min-w-[60px] border-x-[0.5px] border-t-[0.5px] border-lightGray2 dark:border-darkGray"></div>
             <div className="flex-grow"></div>
           </div>
         </div>
         {content.map((item, index) => {
           return (
             <div
-              className="w-full flex flex-row border-t-[0.5px] border-lightGray2 dark:border-darkGray3 group"
+              className="w-full flex flex-row border-t-[0.5px] border-lightGray2 dark:border-darkGray group"
               key={index}
             >
-              <div className="ml-[20px] sm:ml-[60px] min-h-[60px] min-w-[60px] border-x-[0.5px] border-lightGray2 dark:border-darkGray3"></div>
-              <div className="flex flex-col justify-center items-start px-4 py-8 gap-y-[10px] flex-grow text-darkBlue4 dark:text-[#DBDBDB] rounded-[30px] group-hover:border-3 group-hover:border-darkBlue4 group-hover:border-[#4A648B]">
+              <div className="ml-[20px] sm:ml-[60px] min-h-[60px] min-w-[60px] border-x-[0.5px] border-lightGray2 dark:border-darkGray"></div>
+              <div className="flex flex-col justify-center items-start px-4 py-8 gap-y-[10px] flex-grow text-darkBlue3 dark:text-[#DBDBDB] rounded-[30px] group-hover:border-3 group-hover:border-darkBlue3 group-hover:border-[#4A648B]">
                 <img
                   src={`${
                     theme === "dark" ? item.iconPathDark : item.iconPathLight
@@ -51,15 +51,15 @@ export default function WhyUs({ content }: WhyUsProps) {
                 <p className="text-[14px]">{item.description}</p>
               </div>
               <div
-                className="mr-[20px] sm:mr-[60px] group-hover:bg-[url('/why-us/scratched-bg-tall-light.svg')] min-h-[60px] min-w-[60px] border-x-[0.5px] border-lightGray2 dark:border-darkGray3
+                className="mr-[20px] sm:mr-[60px] group-hover:bg-[url('/why-us/scratched-bg-tall-light.svg')] min-h-[60px] min-w-[60px] border-x-[0.5px] border-lightGray2 dark:border-darkGray
               group-hover:text-red group-focus:text-red group-hover:dark:bg-[url('/why-us/scratched-bg-tall-dark.svg')]"
               />
             </div>
           );
         })}
-        <div className="w-full flex flex-row border-y-[0.5px] border-lightGray2 dark:border-darkGray3 group">
-          <div className="ml-[10px] sm:ml-[60px] min-h-[60px] min-w-[60px] border-x-[0.5px] border-t-[0.5px] border-lightGray2 dark:border-darkGray3"></div>
-          <div className="relative flex flex-col justify-center items-center px-8 py-8 gap-y-[20px] flex-grow text-darkBlue4 dark:text-[#DBDBDB] rounded-[30px] group-hover:hover:border-3 group-hover:border-darkBlue4 group-hover:border-[#4A648B]">
+        <div className="w-full flex flex-row border-y-[0.5px] border-lightGray2 dark:border-darkGray group">
+          <div className="ml-[10px] sm:ml-[60px] min-h-[60px] min-w-[60px] border-x-[0.5px] border-t-[0.5px] border-lightGray2 dark:border-darkGray"></div>
+          <div className="relative flex flex-col justify-center items-center px-8 py-8 gap-y-[20px] flex-grow text-darkBlue3 dark:text-[#DBDBDB] rounded-[30px] group-hover:hover:border-3 group-hover:border-darkBlue3 group-hover:border-[#4A648B]">
             <img
               src={`${
                 theme === "dark"
@@ -84,7 +84,7 @@ export default function WhyUs({ content }: WhyUsProps) {
             />
           </div>
           <div
-            className="group-hover:bg-[url('/why-us/scratched-bg-tall-light.svg')] min-h-[60px] min-w-[60px] border-x-[0.5px] border-t-[0.5px] border-lightGray2 dark:border-darkGray3
+            className="group-hover:bg-[url('/why-us/scratched-bg-tall-light.svg')] min-h-[60px] min-w-[60px] border-x-[0.5px] border-t-[0.5px] border-lightGray2 dark:border-darkGray
           group-hover:dark:bg-[url('/why-us/scratched-bg-tall-dark.svg')] mr-[20px] sm:mr-[60px]"
           />
         </div>

@@ -37,7 +37,7 @@ export default function Sidebar({
     <div
       ref={sidebarRef}
       className={`
-        ${animationClasses} z-20 bg-lightBlue2 dark:bg-customBlack dark:border-l dark:border-y dark:border-l-2 dark:border-y-2 max-w-[400px]
+        ${animationClasses} z-20 bg-lightBlue2 dark:bg-#1A1A1A dark:border-l dark:border-y dark:border-l-2 dark:border-y-2 max-w-[400px]
       `}
       onClick={(e) => handleClick(e)}
     >

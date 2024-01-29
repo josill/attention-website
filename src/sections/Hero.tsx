@@ -138,12 +138,12 @@ export default function Hero() {
         className="flex flex-col justify-center items-center"
         id="title-block"
       >
-        <h3 className="text-[20px] text-darkGray mt-8 mb-4">
+        <h3 className="text-[20px] sm:text-[40px] text-#C0C0C0 mt-8 mb-4">
           Empowering tomorrow
         </h3>
-        <h1 className="text-[30px] text-lightGray text-center px-4">
+        <h1 className="text-[30px] sm:text-[60px] text-lightGray text-center px-4">
           Innovative{" "}
-          <span className="text-darkBlue2 dark:text-lightBlue">
+          <span className="text-darkBlue3">
             IT Solutions
           </span>{" "}
           for a connected world

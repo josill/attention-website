@@ -58,9 +58,9 @@ export default function Contact() {
 
   return (
     <section id="contact" className="flex flex-row">
-      <div className="hidden sm:block ml-[10px] sm:ml-[60px] border-x-[0.5px] border-lightGray2 dark:border-darkGray3 min-h-[128px] min-w-[60px]" />
+      <div className="hidden sm:block ml-[10px] sm:ml-[60px] border-x-[0.5px] border-lightGray2 dark:border-darkGray min-h-[128px] min-w-[60px]" />
       <div className="w-full flex flex-col justify-center items-center sm:items-start gap-y-4 px-8 pt-32 pb-16 text-textBlue">
-        <h2 className="font-beVietnam text-darkBlue4 dark:text-white text-[30px] sm:text-[50px] mb-8">
+        <h2 className="font-beVietnam text-darkBlue3 dark:text-white text-[30px] sm:text-[50px] mb-8">
           Get in touch today 👋
         </h2>
         <form
@@ -72,27 +72,27 @@ export default function Contact() {
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="Name"
-            className="w-full max-w-[450px] min-h-[50px] rounded-[16px] border-2 border-darkBlue4 pl-4 dark:bg-customBlack4"
+            className="w-full max-w-[450px] min-h-[50px] rounded-[16px] border-2 border-darkBlue3 pl-4 dark:bg-customBlack"
           />
           <input
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder={emailError ? "*Please add your email" : "Email*"}
-            className={`w-full max-w-[450px] min-h-[50px] rounded-[16px] border-2 pl-4 dark:bg-customBlack4
-            ${emailError ? "text-red border-red" : "border-darkBlue4"}
+            className={`w-full max-w-[450px] min-h-[50px] rounded-[16px] border-2 pl-4 dark:bg-customBlack
+            ${emailError ? "text-red border-red" : "border-darkBlue3"}
             `}
           />
           <input
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             placeholder={messageError ? "*Please add a message" : "Message*"}
-            className={`w-full max-w-[650px] text-start min-h-[200px] rounded-[16px] border-2 pl-4 dark:bg-customBlack4 pb-[140px]
-            ${messageError ? "text-red border-red" : "border-darkBlue4"}
+            className={`w-full max-w-[650px] text-start min-h-[200px] rounded-[16px] border-2 pl-4 dark:bg-customBlack pb-[140px]
+            ${messageError ? "text-red border-red" : "border-darkBlue3"}
             `}
           />
           <button
             type="submit"
-            className="flex items-center justify-center rounded-[16px] bg-darkBlue4 border-2 border-darkBlue4 w-full max-w-[650px] min-h-[50px] text-[20px] text-white"
+            className="flex items-center justify-center rounded-[16px] bg-darkBlue3 border-2 border-darkBlue3 w-full max-w-[650px] min-h-[50px] text-[20px] text-white"
           >
             {isLoading ? (
               <Spinner color="white" labelColor="foreground" />
@@ -102,7 +102,7 @@ export default function Contact() {
           </button>
         </form>
       </div>
-      <div className="hidden sm:block mr-[20px] sm:mr-[60px] border-x-[0.5px] border-lightGray2 dark:border-darkGray3 min-h-[128px] min-w-[60px]" />
+      <div className="hidden sm:block mr-[20px] sm:mr-[60px] border-x-[0.5px] border-lightGray2 dark:border-darkGray min-h-[128px] min-w-[60px]" />
     </section>
   );
 }

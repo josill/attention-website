@@ -44,19 +44,19 @@ function Header({
           >
             <div className="border border-[0.25px] border-lineGray dark:border-customGray min-w-[30px] flex-grow max-w-[100px] mx-2"></div>
             <div className="min-w-1/2 flex flex-row gap-x-[20px] justify-center items-center border-[1px] border-lineGray dark:border-customGray rounded-[32px] py-2 px-2">
-              <h2 className="text-[20px] text-black dark:text-headerWhite hover:bg-darkBlue5 hover:text-lightGray2 hover:dark:bg-headerGray rounded-[23.5px] px-3 py-2 mb-1 cursor-pointer">
+              <h2 className="text-[20px] text-black dark:text-headerWhite hover:bg-darkBlue4 hover:text-lightGray2 hover:dark:bg-headerGray rounded-[23.5px] px-3 py-2 mb-1 cursor-pointer">
                 Services
               </h2>
-              <h2 className="text-[20px] text-black dark:text-headerWhite hover:bg-darkBlue5 hover:text-lightGray2 hover:dark:bg-headerGray rounded-[23.5px] px-3 py-2 mb-1 cursor-pointer">
+              <h2 className="text-[20px] text-black dark:text-headerWhite hover:bg-darkBlue4 hover:text-lightGray2 hover:dark:bg-headerGray rounded-[23.5px] px-3 py-2 mb-1 cursor-pointer">
                 Our work
               </h2>
-              <h2 className="text-[20px] text-black dark:text-headerWhite hover:bg-darkBlue5 hover:text-lightGray2 hover:dark:bg-headerGray rounded-[23.5px] px-3 py-2 mb-1 cursor-pointer">
+              <h2 className="text-[20px] text-black dark:text-headerWhite hover:bg-darkBlue4 hover:text-lightGray2 hover:dark:bg-headerGray rounded-[23.5px] px-3 py-2 mb-1 cursor-pointer">
                 The team
               </h2>
-              <h2 className="text-[20px] text-black dark:text-headerWhite hover:bg-darkBlue5 hover:text-lightGray2 hover:dark:bg-headerGray rounded-[23.5px] px-3 py-2 mb-1 cursor-pointer">
+              <h2 className="text-[20px] text-black dark:text-headerWhite hover:bg-darkBlue4 hover:text-lightGray2 hover:dark:bg-headerGray rounded-[23.5px] px-3 py-2 mb-1 cursor-pointer">
                 Why us?
               </h2>
-              <div className="group flex gap-x-3 items-center justify-center hover:bg-darkBlue5 hover:dark:bg-headerGray rounded-[23.5px] px-4 py-2 mb-1 cursor-pointer">
+              <div className="group flex gap-x-3 items-center justify-center hover:bg-darkBlue4 hover:dark:bg-headerGray rounded-[23.5px] px-4 py-2 mb-1 cursor-pointer">
                 <h2 className="text-[20px] text-black dark:text-headerWhite group-hover:text-lightGray2">
                   Contact us
                 </h2>
@@ -65,7 +65,7 @@ function Header({
                   alt="arrow"
                   height={15}
                   width={15}
-                  className="mt-[3px] group-hover:animate-bounce group-hover:fill-lightGray2 text-darkBlue4"
+                  className="mt-[3px] group-hover:animate-bounce group-hover:fill-lightGray2 text-darkBlue3"
                 />
               </div>
             </div>

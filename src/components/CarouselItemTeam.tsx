@@ -23,13 +23,13 @@ export default function CarouselItemTeam({
           className="rounded-[27px] border-[4px] border-white"
         />
         <div className="flex flex-col items-start mt-8">
-          <h4 className="text-[16px] text-darkBrown dark:text-textGray6 mb-1">
+          <h4 className="text-[16px] text-#7E7168 dark:text-#A1ABB2 mb-1">
             {position}
           </h4>
           <h3 className="text-black dark:text-white text-[20px] font-semibold">
             {name}
           </h3>
-          <p className="text-[16px] text-paragraphGray dark:text-textGray4 my-4 mt-4">
+          <p className="text-[16px] text-paragraphGray dark:text-textGray2 my-4 mt-4">
             {description}
           </p>
           <div className="flex justify-center items-center w-full">
@@ -38,7 +38,7 @@ export default function CarouselItemTeam({
               href={link}
               target="_blank"
             >
-              <p className="text-textGray7">LinkedIn profile</p>
+              <p className="text-#303030">LinkedIn profile</p>
               <img
                 src="/our-team/arrow-icon.svg"
                 alt="arrow"

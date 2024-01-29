@@ -47,13 +47,13 @@ export default function Team({
               height={10}
             />
           )}
-          <div className="border-[0.25px] h-[1px] border-lineGray dark:border-darkGray3 w-full"></div>
+          <div className="border-[0.25px] h-[1px] border-lineGray dark:border-darkGray w-full"></div>
         </div>
         <h2 className="text-customGray dark:text-white text-[25px] font-beVietnam font-light px-12 sm:px-16 pb-2">
           The team
         </h2>
         <div className="flex flex-grow items-center justify-end gap-x-4">
-          <div className="border-[0.25px] h-[1px] border-lineGray dark:border-darkGray3 w-full"></div>
+          <div className="border-[0.25px] h-[1px] border-lineGray dark:border-darkGray w-full"></div>
           {!deviceIsMobile && (
             <img
               src={
@@ -68,7 +68,7 @@ export default function Team({
           )}
         </div>
       </div>
-      <div className="flex flex-col w-full px-8 sm:py-16 md:px-16 sm:gap-8 sm:border-x-[1px] sm:border-lineGray sm:dark:border-darkGray3">
+      <div className="flex flex-col w-full px-8 sm:py-16 md:px-16 sm:gap-8 sm:border-x-[1px] sm:border-lineGray sm:dark:border-darkGray">
         <div className="sm:w-full my-4">
           <SwiperComponent
             carouselItems={carouselItems}
@@ -91,7 +91,7 @@ export default function Team({
               height={10}
             />
           )}
-          <div className="hidden sm:block border border-[0.25px] h-[1px] border-lineGray dark:border-darkGray3 w-full"></div>
+          <div className="hidden sm:block border border-[0.25px] h-[1px] border-lineGray dark:border-darkGray w-full"></div>
           {!deviceIsMobile && (
             <img
               src={
